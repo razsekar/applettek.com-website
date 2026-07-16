@@ -11,9 +11,9 @@ TAILWIND = """
       theme: {
         extend: {
           colors: {
-            primary: { DEFAULT: '#F04C23', 100: '#ea3b10', soft: '#f25f3b' },
-            secondary: '#FF6037',
-            tertiary: '#DC380F',
+            primary: { DEFAULT: '#F27A1A', 100: '#e06a10', soft: '#ff9438' },
+            secondary: '#FF8C00',
+            tertiary: '#E06A00',
             quaternary: '#383F48',
             dark: '#212529',
             grey: { DEFAULT: '#777', light: '#F4F4F4', soft: '#F3F3F3', mid: '#5a6267', border: '#404040' }
@@ -224,7 +224,7 @@ def homepage():
     </section>
 
     <!-- CTA BAND -->
-    <section class="relative py-16 md:py-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(240,76,35,0.9), rgba(220,56,15,0.9)), url('{b('assets/stock/cta-bg.jpg')}');">
+    <section class="relative py-16 md:py-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(242,122,26,0.9), rgba(224,106,0,0.9)), url('{b('assets/stock/cta-bg.jpg')}');">
       <div class="max-w-container mx-auto px-4 text-center">
         <h2 class="text-white text-3xl md:text-4xl font-semibold mb-6">Good business planning ensure success.</h2>
         <a href="contact-us.html" class="btn-offset inline-flex bg-dark text-white font-semibold px-6 py-3 text-base"><span>Request Quote</span></a>
