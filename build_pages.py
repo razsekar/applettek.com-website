@@ -89,7 +89,7 @@ def homepage():
     b = lambda p: base + p
     body = f"""
     <!-- HERO -->
-    <section class="relative overflow-hidden border-0 m-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{b('assets/brand/images/slider-1ap.jpg')}');">
+    <section class="relative overflow-hidden border-0 m-0 bg-cover bg-center bg-no-repeat" style="background-image: url('{b('assets/stock/hero.jpg')}');">
       <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/30"></div>
       <div class="relative max-w-container mx-auto px-4 pb-40 md:pb-52 pt-16 md:pt-20">
         <div class="fade-up">
@@ -148,10 +148,10 @@ def homepage():
       <!-- ABOUT -->
       <div id="aboutus" class="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center pt-16 md:pt-24 pb-8">
         <div class="grid grid-cols-2 gap-3 fade-up">
-          <div><img src="{b('assets/brand/images/about-3.jpg')}" alt="" class="w-full shadow-img h-full object-cover" /></div>
+          <div><img src="{b('assets/stock/about-1.jpg')}" alt="" class="w-full shadow-img h-full object-cover" /></div>
           <div class="flex flex-col gap-3">
-            <img src="{b('assets/brand/images/about-4.jpg')}" alt="" class="w-full shadow-img" />
-            <img src="{b('assets/theme/generic/generic-3.jpg')}" alt="" class="w-full shadow-img" />
+            <img src="{b('assets/stock/about-2.jpg')}" alt="" class="w-full shadow-img" />
+            <img src="{b('assets/stock/about-3.jpg')}" alt="" class="w-full shadow-img" />
           </div>
         </div>
         <div class="fade-up">
@@ -168,10 +168,10 @@ def homepage():
     <!-- CLIENT LOGOS -->
     <div class="py-12 md:py-16 overflow-hidden">
       <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 px-4 opacity-80">
-        <img src="{b('assets/brand/clients/citi-logo-11.png')}" alt="Citi" class="max-h-[48px] w-auto max-w-[140px] object-contain" />
-        <img src="{b('assets/brand/clients/lowes-logo-11.png')}" alt="Lowe's" class="max-h-[48px] w-auto max-w-[140px] object-contain" />
-        <img src="{b('assets/brand/images/company.png')}" alt="Client" class="max-h-[48px] w-auto max-w-[120px] object-contain" />
-        <img src="{b('assets/brand/images/erp-logos.png')}" alt="ERP partners" class="max-h-[48px] w-auto max-w-[160px] object-contain" />
+        <img src="{b('assets/stock/client-1.jpg')}" alt="Enterprise partner" class="h-14 w-28 object-cover rounded opacity-80" />
+        <img src="{b('assets/stock/client-2.jpg')}" alt="Retail partner" class="h-14 w-28 object-cover rounded opacity-80" />
+        <img src="{b('assets/stock/client-3.jpg')}" alt="Technology partner" class="h-14 w-28 object-cover rounded opacity-80" />
+        <img src="{b('assets/stock/client-4.jpg')}" alt="Industry partner" class="h-14 w-28 object-cover rounded opacity-80" />
       </div>
     </div>
 
@@ -192,12 +192,12 @@ def homepage():
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
 """
     service_cards = [
-        ("services/erp-services.html", "ERP Services", "assets/theme/services/services-1.jpg", "Streamline and integrate back-office business processes and facilitate growth."),
-        ("services/application-managed-services.html", "Application Managed Services", "assets/theme/services/services-2.jpg", "Proven methodology and automated tools for application management."),
-        ("services/web-development.html", "Web Development", "assets/theme/services/services-3.jpg", "Web-based solutions that meet your business needs and strengthen your brand."),
-        ("services/mobile-applications.html", "Mobile Applications", "assets/theme/services/services-4.jpg", "Custom mobile applications designed for performance and user experience."),
-        ("services/qa-testing.html", "QA & Testing", "assets/theme/services/services-5.jpg", "Quality assurance and testing to ensure reliable, production-ready software."),
-        ("practices/workday.html", "Workday Practice", "assets/theme/services/services-6.jpg", "Comprehensive Workday implementation, support, and value-add services."),
+        ("services/erp-services.html", "ERP Services", "assets/stock/service-erp.jpg", "Streamline and integrate back-office business processes and facilitate growth."),
+        ("services/application-managed-services.html", "Application Managed Services", "assets/stock/service-ams.jpg", "Proven methodology and automated tools for application management."),
+        ("services/web-development.html", "Web Development", "assets/stock/service-web.jpg", "Web-based solutions that meet your business needs and strengthen your brand."),
+        ("services/mobile-applications.html", "Mobile Applications", "assets/stock/service-mobile.jpg", "Custom mobile applications designed for performance and user experience."),
+        ("services/qa-testing.html", "QA & Testing", "assets/stock/service-qa.jpg", "Quality assurance and testing to ensure reliable, production-ready software."),
+        ("practices/workday.html", "Workday Practice", "assets/stock/service-workday.jpg", "Comprehensive Workday implementation, support, and value-add services."),
     ]
     for href, title, img, blurb in service_cards:
         body += f"""
@@ -224,7 +224,7 @@ def homepage():
     </section>
 
     <!-- CTA BAND -->
-    <section class="relative py-16 md:py-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(240,76,35,0.9), rgba(220,56,15,0.9)), url('{b('assets/brand/images/slider-ap-2.jpg')}');">
+    <section class="relative py-16 md:py-20 bg-cover bg-center" style="background-image: linear-gradient(rgba(240,76,35,0.9), rgba(220,56,15,0.9)), url('{b('assets/stock/cta-bg.jpg')}');">
       <div class="max-w-container mx-auto px-4 text-center">
         <h2 class="text-white text-3xl md:text-4xl font-semibold mb-6">Good business planning ensure success.</h2>
         <a href="contact-us.html" class="btn-offset inline-flex bg-dark text-white font-semibold px-6 py-3 text-base"><span>Request Quote</span></a>
@@ -289,7 +289,7 @@ def homepage():
           <a href="contact-us.html" class="btn-offset inline-flex bg-primary text-white font-semibold px-6 py-3 text-base"><span>Contact Now</span></a>
         </div>
         <div class="lg:col-span-5 fade-up">
-          <img src="{b('assets/brand/images/Image-6.jpg')}" alt="" class="w-full shadow-img" />
+          <img src="{b('assets/stock/offerings.jpg')}" alt="" class="w-full shadow-img" />
         </div>
       </div>
     </div>
@@ -310,10 +310,10 @@ def homepage():
       <div class="max-w-container mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
 """
     team = [
-        ("Oulian Miyako", "Manager", "assets/theme/team/team-1.jpg"),
-        ("Stive Stikollo", "Designer", "assets/theme/team/team-2.jpg"),
-        ("Darrell Stewart", "Support Expert", "assets/theme/team/team-3.jpg"),
-        ("Erika Jayne", "SEO Specialist", "assets/theme/team/team-4.jpg"),
+        ("Oulian Miyako", "Manager", "assets/stock/team-1.jpg"),
+        ("Stive Stikollo", "Designer", "assets/stock/team-2.jpg"),
+        ("Darrell Stewart", "Support Expert", "assets/stock/team-3.jpg"),
+        ("Erika Jayne", "SEO Specialist", "assets/stock/team-4.jpg"),
     ]
     for name, role, img in team:
         body += f"""
@@ -405,9 +405,9 @@ def homepage():
       <div class="grid md:grid-cols-3 gap-6">
 """
     blogs = [
-        ("blog/our-consultants-can-make-your-brand-a-reality.html", "18", "Our consultants can make your brand a reality", "assets/theme/blog/blog-1.jpg"),
-        ("blog/when-a-small-business-is-just-starting-out.html", "16", "When a small business is just starting out", "assets/theme/blog/blog-2.jpg"),
-        ("blog/finances-and-accounting-are-one-of-the-hardest.html", "16", "Finance and account are one of hardest", "assets/theme/blog/blog-3.jpg"),
+        ("blog/our-consultants-can-make-your-brand-a-reality.html", "18", "Our consultants can make your brand a reality", "assets/stock/blog-1.jpg"),
+        ("blog/when-a-small-business-is-just-starting-out.html", "16", "When a small business is just starting out", "assets/stock/blog-2.jpg"),
+        ("blog/finances-and-accounting-are-one-of-the-hardest.html", "16", "Finance and account are one of hardest", "assets/stock/blog-3.jpg"),
     ]
     for href, day, title, img in blogs:
         body += f"""
@@ -459,8 +459,8 @@ INNER = {
         "content": """
         <div class="grid lg:grid-cols-2 gap-12 items-start">
           <div>
-            <img src="assets/brand/images/about-3.jpg" alt="About Applettek" class="w-full shadow-img mb-4" />
-            <img src="assets/brand/images/about-4.jpg" alt="" class="w-full shadow-img" />
+            <img src="assets/stock/about-1.jpg" alt="About Applettek" class="w-full shadow-img mb-4" />
+            <img src="assets/stock/about-2.jpg" alt="" class="w-full shadow-img" />
           </div>
           <div class="prose-content">
             <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] !mt-0 !text-sm !font-medium">ABOUT US</h2>
@@ -483,14 +483,14 @@ INNER = {
         "desc": "Organizations that trust Applettek for IT consulting and delivery.",
         "content": """
         <div class="text-center max-w-3xl mx-auto mb-12">
-          <h2 class="text-dark text-3xl font-semibold mb-4">Trusted by Leading Organizations</h2>
-          <p class="text-lg">We partner with enterprises to deliver technology strategy, implementation, and managed services.</p>
+          <h2 class="text-dark text-3xl font-semibold mb-4">Industries We Serve</h2>
+          <p class="text-lg">We partner with enterprises across finance, retail, technology, and professional services. Client logos coming soon.</p>
         </div>
         <div class="flex flex-wrap justify-center items-center gap-12 md:gap-16 py-8">
-          <img src="assets/brand/clients/citi-logo-11.png" alt="Citi" class="max-h-[60px] w-auto max-w-[180px] object-contain" />
-          <img src="assets/brand/clients/lowes-logo-11.png" alt="Lowe's" class="max-h-[60px] w-auto max-w-[180px] object-contain" />
-          <img src="assets/brand/images/company.png" alt="Client" class="max-h-[60px] w-auto max-w-[140px] object-contain" />
-          <img src="assets/brand/images/erp-logos.png" alt="ERP partners" class="max-h-[60px] w-auto max-w-[200px] object-contain" />
+          <img src="assets/stock/client-1.jpg" alt="Enterprise partner" class="h-20 w-36 object-cover rounded shadow-img" />
+          <img src="assets/stock/client-2.jpg" alt="Retail partner" class="h-20 w-36 object-cover rounded shadow-img" />
+          <img src="assets/stock/client-3.jpg" alt="Technology partner" class="h-20 w-36 object-cover rounded shadow-img" />
+          <img src="assets/stock/client-4.jpg" alt="Industry partner" class="h-20 w-36 object-cover rounded shadow-img" />
         </div>
         <div class="text-center mt-12">
           <a href="contact-us.html" class="btn-offset inline-flex bg-primary text-white font-semibold px-6 py-3"><span>Become a Client</span></a>
@@ -646,7 +646,7 @@ SERVICES = {
             ("ERP Project Recovery", "Get stalled or troubled ERP projects back on track."),
             ("Post Go Live Support & Monitoring", "Stabilize operations after go-live with ongoing support."),
         ],
-        "image": "assets/brand/images/erp-modules.png",
+        "image": "assets/stock/service-erp.jpg",
     },
     "application-managed-services.html": {
         "title": "Application Managed Services | APPLETTEK",
@@ -661,7 +661,7 @@ SERVICES = {
             ("Security & Compliance Support", "Help maintain security posture and audit readiness."),
             ("Continuous Improvement", "Ongoing enhancements aligned to business priorities."),
         ],
-        "image": "assets/brand/images/application-managed.png",
+        "image": "assets/stock/service-ams.jpg",
     },
     "web-development.html": {
         "title": "Web Development | APPLETTEK",
@@ -676,7 +676,7 @@ SERVICES = {
             ("UI/UX Design", "Us-centered interfaces that drive engagement."),
             ("Maintenance & Support", "Ongoing updates, security patches, and enhancements."),
         ],
-        "image": "assets/brand/images/web-development-1.png",
+        "image": "assets/stock/service-web.jpg",
     },
     "mobile-applications.html": {
         "title": "Mobile Applications | APPLETTEK",
@@ -691,7 +691,7 @@ SERVICES = {
             ("Store Deployment", "Guidance through app store submission and updates."),
             ("Support & Analytics", "Post-launch support and usage insights."),
         ],
-        "image": "assets/brand/images/mobile-app.png",
+        "image": "assets/stock/service-mobile.jpg",
     },
     "qa-testing.html": {
         "title": "QA & Testing | APPLETTEK",
@@ -706,7 +706,7 @@ SERVICES = {
             ("Security Testing", "Identify vulnerabilities before go-live."),
             ("UAT Support", "Facilitate user acceptance with clear scripts and reporting."),
         ],
-        "image": "assets/brand/images/qa-test.webp",
+        "image": "assets/stock/service-qa.jpg",
     },
 }
 
@@ -724,7 +724,7 @@ PRACTICES = {
             ("Staff Augmentation", "Skilled Workday resources when you need them."),
             ("Lights-On and Lean-On Services", "Ongoing operational support you can lean on."),
         ],
-        "image": "assets/brand/images/workday-6.jpg",
+        "image": "assets/stock/practice-workday.jpg",
     },
     "sap.html": {
         "title": "SAP | APPLETTEK",
@@ -739,7 +739,7 @@ PRACTICES = {
             ("Core Services", "Implementation, upgrades, and integration services."),
             ("Applettek Differentiators", "Delivery rigor and domain expertise that set us apart."),
         ],
-        "image": "assets/brand/images/opa.jpg",
+        "image": "assets/stock/practice-sap.jpg",
     },
     "salesforce.html": {
         "title": "Salesforce | APPLETTEK",
@@ -754,7 +754,7 @@ PRACTICES = {
             ("Migration & Upgrades", "Move to Salesforce or modernize existing orgs."),
             ("Managed Support", "Ongoing administration and enhancement support."),
         ],
-        "image": "assets/brand/images/consulting.png",
+        "image": "assets/stock/practice-salesforce.jpg",
     },
     "oracle-cloud-applications.html": {
         "title": "Oracle Cloud Applications | APPLETTEK",
@@ -769,7 +769,7 @@ PRACTICES = {
             ("Support & Optimization", "Stabilize and continuously improve after go-live."),
             ("Advisory Services", "Roadmaps, assessments, and vendor selection support."),
         ],
-        "image": "assets/brand/images/Image-7.jpg",
+        "image": "assets/stock/practice-oracle.jpg",
     },
 }
 
@@ -778,7 +778,7 @@ BLOG_POSTS = [
         "file": "our-consultants-can-make-your-brand-a-reality.html",
         "title": "Our consultants can make your brand a reality",
         "date": "16 Feb 2023",
-        "img": "assets/theme/blog/blog-1.jpg",
+        "img": "assets/stock/blog-1.jpg",
         "body": """
         <p>Building a strong brand takes more than a logo — it requires strategy, consistency, and the right technology foundation. Applettek consultants work with organizations to turn brand ambitions into operational reality.</p>
         <p>From digital experience platforms to CRM and analytics, we help you select and implement tools that support how your customers discover, engage, and stay loyal to your brand.</p>
@@ -789,7 +789,7 @@ BLOG_POSTS = [
         "file": "when-a-small-business-is-just-starting-out.html",
         "title": "When a small business is just starting out",
         "date": "16 Feb 2023",
-        "img": "assets/theme/blog/blog-2.jpg",
+        "img": "assets/stock/blog-2.jpg",
         "body": """
         <p>Early-stage businesses often face a unique challenge: they need enterprise-grade capabilities without enterprise complexity or cost. The right IT decisions early on can accelerate growth — the wrong ones can create lasting technical debt.</p>
         <p>Applettek helps small and growing businesses prioritize what matters: a solid website, secure collaboration tools, lightweight ERP or accounting integrations, and a plan that scales.</p>
@@ -800,7 +800,7 @@ BLOG_POSTS = [
         "file": "finances-and-accounting-are-one-of-the-hardest.html",
         "title": "Finance and account are one of hardest",
         "date": "16 Feb 2023",
-        "img": "assets/theme/blog/blog-3.jpg",
+        "img": "assets/stock/blog-3.jpg",
         "body": """
         <p>Finance and accounting processes are among the hardest to digitize well. They demand accuracy, compliance, and auditability — while still needing enough flexibility for how the business actually operates.</p>
         <p>Through ERP and Oracle Cloud practices, Applettek helps finance teams modernize close processes, reporting, and controls without disrupting daily operations.</p>
@@ -937,7 +937,7 @@ Complete multi-page site: Porto Business Consulting 3 layout + Applettek content
 - `reference/old-content/` — cloned applettek.com content
 - `reference/porto-template/` — Porto HTML/Tailwind template snapshot
 - Live pages at this folder root (`index.html`, `about-us.html`, `services/`, etc.)
-- `assets/brand/` — Applettek logos and images
+- `assets/brand/logos/` — Applettek logos only\n- `assets/stock/` — temporary Unsplash placeholders (replace with AI-generated assets later)
 - `assets/theme/` — Porto visual assets
 - `css/site.css`, `js/site.js` — shared styles and chrome (header/footer)
 
