@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Demo Business Consulting 3 | Porto - Multipurpose Website Template</title>
+  <meta name="description" content="Porto - Multipurpose Website Template" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              DEFAULT: '#F04C23',
+              100: '#ea3b10',
+              soft: '#f25f3b',
+            },
+            secondary: '#FF6037',
+            tertiary: '#DC380F',
+            quaternary: '#383F48',
+            dark: '#212529',
+            grey: {
+              DEFAULT: '#777',
+              light: '#F4F4F4',
+              soft: '#F3F3F3',
+              mid: '#5a6267',
+              border: '#404040',
+            }
+          },
+          fontFamily: {
+            sans: ['Poppins', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 0 40px 0 rgba(187, 187, 187, 0.3)',
+            soft: '0 12px 40px rgba(0,0,0,0.08)',
+            img: '0 10px 30px rgba(0,0,0,0.12)',
+          },
+          maxWidth: {
+            container: '1140px',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    :root {
+      --primary: #F04C23;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: Poppins, sans-serif; color: #777; }
+
+    .text-clip-bg {
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 20% 30%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    @media (max-width: 991px) {
+      .text-clip-bg {
+        background-image: none !important;
+        -webkit-text-fill-color: #212529;
+        color: #212529;
+      }
+      .text-clip-bg-light {
+        -webkit-text-fill-color: #fff !important;
+        color: #fff !important;
+      }
+    }
+
+    .highlight-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .highlight-underline::before {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      width: 100%;
+      border-bottom: 7px solid #d20d0d;
+      opacity: 0.2;
+      z-index: 0;
+    }
+
+    .btn-offset {
+      position: relative;
+      transition: transform 300ms ease;
+    }
+    .btn-offset > span { position: relative; z-index: 1; }
+    .btn-offset::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      opacity: 0.7;
+      transform: translate(5px, 5px);
+      transition: transform 300ms ease;
+      z-index: 0;
+    }
+    .btn-offset:hover { transform: translate(2.5px, 2.5px); }
+    .btn-offset:hover::before { transform: translate(0, 0); }
+
+    .header-skew {
+      position: relative;
+    }
+    .header-skew::before,
+    .header-skew::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100%;
+      background: #212529;
+      transform: skewX(-25deg);
+      z-index: 0;
+    }
+    .header-skew::after {
+      top: 7px;
+      right: -7px;
+      z-index: -1;
+      opacity: 0.85;
+    }
+
+    .sticky-header {
+      transition: box-shadow 0.3s ease, padding 0.3s ease;
+    }
+    .sticky-header.is-stuck {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: #fff;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      animation: slideDown 0.35s ease;
+    }
+    @keyframes slideDown {
+      from { transform: translateY(-100%); }
+      to { transform: translateY(0); }
+    }
+
+    .shape-bottom svg,
+    .shape-top svg { display: block; width: 100%; height: 100%; }
+
+    .link-hover .view-arrow { transition: transform 300ms ease; }
+    .link-hover:hover .view-arrow { transform: translateX(7px); }
+    .link-hover .crooked { overflow: hidden; width: 77px; display: inline-block; }
+    .link-hover:hover .crooked img {
+      animation: crookedLine 2s linear infinite;
+    }
+    @keyframes crookedLine {
+      from { transform: translateX(0); }
+      to { transform: translateX(-48%); }
+    }
+
+    .date-badge {
+      position: relative;
+      transition: transform 300ms ease;
+    }
+    .date-badge::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      opacity: 0.7;
+      transform: translate(5px, 5px);
+      transition: transform 300ms ease;
+      z-index: 0;
+    }
+    .link-hover:hover .date-badge { transform: translate(2.5px, 2.5px); }
+    .link-hover:hover .date-badge::before { transform: translate(0, 0); }
+
+    .overlay-dark::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.15));
+      z-index: 1;
+    }
+    .overlay-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(240, 76, 35, 0.85);
+      z-index: 1;
+    }
+
+    .progress-bar-fill {
+      width: 0;
+      height: 100%;
+      background: var(--primary);
+      transition: width 1.4s ease;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .carousel-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ddd;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .carousel-dot.active { background: var(--primary); }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .team-scroll::-webkit-scrollbar { height: 6px; }
+    .team-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+    .map-placeholder {
+      background: #2c3237 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='1'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E") center/48px no-repeat;
+    }
+  </style>
+</head>
+<body class="bg-white antialiased">
+
+  <!-- ========== HEADER ========== -->
+  <header id="site-header" class="relative z-40 bg-white">
+    <!-- Top bar -->
+    <div class="bg-white border-b border-gray-100">
+      <div class="max-w-container mx-auto px-4">
+        <div class="flex items-center justify-between min-h-[42px]">
+          <div class="header-skew flex items-center pe-8 py-2 z-[1]">
+            <div class="relative z-[1] flex items-center gap-4">
+              <a href="tel:8001234567" class="flex items-center gap-2 text-white text-sm font-semibold hover:opacity-90">
+                <img src="assets/icons/light-phone.svg" alt="" class="w-[22px] h-[22px]" />
+                (800) 123-4567
+              </a>
+              <a href="mailto:porto@domain.com" class="hidden xl:flex items-center gap-2 text-white text-sm font-semibold hover:opacity-90">
+                <img src="assets/icons/light-email.svg" alt="" class="w-[22px] h-[22px]" />
+                porto@domain.com
+              </a>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 ms-auto">
+            <span class="hidden md:block text-dark text-xs lg:text-sm font-semibold whitespace-nowrap">
+              Mon - Sat 9:00am - 6:00pm / Sunday - CLOSED
+            </span>
+            <div class="flex items-center gap-3 text-dark text-base">
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="hover:text-primary" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.twitter.com/" target="_blank" rel="noopener" class="hover:text-primary" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="hover:text-primary" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main nav -->
+    <div id="main-nav-bar" class="sticky-header bg-white">
+      <div class="max-w-container mx-auto px-4">
+        <div class="flex items-center justify-between h-[90px] lg:h-[100px]">
+          <a href="index.html" class="shrink-0">
+            <img src="assets/logo.png" alt="Porto" width="162" height="33" class="h-[33px] w-auto" />
+          </a>
+
+          <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+            <a href="index.html" class="px-3 py-2 text-[16px] font-medium text-primary capitalize">Home</a>
+            <a href="#aboutus" class="px-3 py-2 text-[16px] font-medium text-dark hover:text-primary capitalize">About Us</a>
+            <div class="relative group">
+              <a href="#services" class="px-3 py-2 text-[16px] font-medium text-dark hover:text-primary capitalize inline-flex items-center gap-1">
+                Services <i class="fas fa-chevron-down text-[10px]"></i>
+              </a>
+              <div class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition absolute top-full left-0 min-w-[220px] bg-white shadow-soft border-t-2 border-primary py-2 z-50">
+                <a href="#services" class="block px-4 py-2 text-sm text-dark hover:text-primary hover:bg-gray-50">Sales &amp; Marketing</a>
+                <a href="#services" class="block px-4 py-2 text-sm text-dark hover:text-primary hover:bg-gray-50">Strategic Planning</a>
+                <a href="#services" class="block px-4 py-2 text-sm text-dark hover:text-primary hover:bg-gray-50">Operations</a>
+                <a href="#services" class="block px-4 py-2 text-sm text-dark hover:text-primary hover:bg-gray-50">Cost Transformation</a>
+                <a href="#services" class="block px-4 py-2 text-sm text-dark hover:text-primary hover:bg-gray-50">Digital Marketing</a>
+                <a href="#services" class="block px-4 py-2 text-sm text-dark hover:text-primary hover:bg-gray-50">Automation</a>
+              </div>
+            </div>
+            <a href="#team" class="px-3 py-2 text-[16px] font-medium text-dark hover:text-primary capitalize">Cases</a>
+            <a href="#team" class="px-3 py-2 text-[16px] font-medium text-dark hover:text-primary capitalize">Team</a>
+            <a href="#blog" class="px-3 py-2 text-[16px] font-medium text-dark hover:text-primary capitalize">Blog</a>
+          </nav>
+
+          <div class="flex items-center gap-3">
+            <a href="#contact" class="btn-offset hidden lg:inline-flex bg-dark text-white text-sm font-semibold px-5 py-2.5">
+              <span>Contact Us</span>
+            </a>
+            <button id="search-toggle" class="text-dark hover:text-primary text-lg p-2" aria-label="Search">
+              <i class="fas fa-search"></i>
+            </button>
+            <button id="mobile-menu-btn" class="lg:hidden text-dark text-xl p-2" aria-label="Menu">
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search dropdown -->
+      <div id="search-panel" class="hidden border-t border-gray-100 bg-white">
+        <div class="max-w-container mx-auto px-4 py-4">
+          <form class="flex gap-2" onsubmit="return false;">
+            <input type="search" placeholder="Search..." class="flex-1 border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:border-primary" />
+            <button type="submit" class="bg-primary text-white px-4 py-2"><i class="fas fa-search"></i></button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+        <nav class="max-w-container mx-auto px-4 py-4 flex flex-col gap-1">
+          <a href="index.html" class="py-2 font-medium text-primary">Home</a>
+          <a href="#aboutus" class="py-2 font-medium text-dark">About Us</a>
+          <a href="#services" class="py-2 font-medium text-dark">Services</a>
+          <a href="#team" class="py-2 font-medium text-dark">Cases</a>
+          <a href="#team" class="py-2 font-medium text-dark">Team</a>
+          <a href="#blog" class="py-2 font-medium text-dark">Blog</a>
+          <a href="#contact" class="py-2 font-medium text-dark">Contact Us</a>
+        </nav>
+      </div>
+    </div>
+    <div id="nav-spacer" class="hidden" style="height:100px"></div>
+  </header>
+
+  <main>
+    <!-- ========== HERO ========== -->
+    <section class="relative overflow-hidden border-0 m-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/backgrounds/background-1.jpg');">
+      <img src="assets/backgrounds/background-woman.png" alt="" class="absolute top-0 right-0 hidden md:block max-h-full w-auto pointer-events-none fade-up" style="max-width: 48%;" />
+      <div class="relative max-w-container mx-auto px-4 pb-40 md:pb-52 pt-16 md:pt-20">
+        <div class="fade-up">
+          <h1 class="text-clip-bg text-[2.75rem] sm:text-6xl xl:text-[6.9rem] 2xl:text-[8.5rem] font-bold leading-none xl:float-right xl:clear-both whitespace-normal xl:whitespace-nowrap pb-2 mb-6 xl:mb-12"
+              style="background-image: url('assets/backgrounds/text-background.jpg');">
+            STRATEGY EXECUTION
+          </h1>
+        </div>
+        <div class="max-w-xl pb-16 md:pb-24 fade-up" style="transition-delay: 0.15s;">
+          <strong class="block font-semibold text-dark text-xl md:text-2xl leading-snug mb-4">
+            Accelerate Strategy Execution and Consistency in
+            <span class="highlight-underline font-bold">Revenue Growth!</span>
+          </strong>
+          <p class="text-base md:text-lg mb-6 leading-relaxed">
+            Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit vehicula leo, vel efficitur felis ultrices non.
+          </p>
+          <a href="#aboutus" class="inline-flex items-center gap-2 text-dark font-medium hover:text-primary">
+            <img src="assets/icons/primary-mouse.svg" alt="" class="w-[30px] h-[30px]" />
+            Scroll Down
+          </a>
+        </div>
+      </div>
+      <div class="shape-bottom absolute bottom-0 left-0 w-full h-[120px] md:h-[180px] pointer-events-none">
+        <svg viewBox="0 0 1920 212" preserveAspectRatio="none" class="w-full h-full">
+          <polygon fill="#F3F3F3" points="0,75 479,161 1357,28 1701,56 1920,26 1920,213 0,212" />
+          <polygon fill="#FFFFFF" points="0,91 481,177 1358,44 1702,72 1920,42 1920,212 0,212" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ========== FEATURE CARDS + ABOUT ========== -->
+    <div class="relative z-10 max-w-container mx-auto px-4" style="margin-top: -200px;">
+      <div class="xl:ml-auto xl:w-[58%]">
+        <div id="feature-carousel" class="relative">
+          <div class="overflow-hidden">
+            <div class="carousel-track" id="feature-track">
+              <!-- slides injected / static cards in a grid for simplicity on large screens -->
+            </div>
+          </div>
+          <!-- Static responsive grid (better UX than JS carousel for clone) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5" id="feature-cards">
+            <a href="#services" class="link-hover block bg-white shadow-card text-center py-10 px-6 hover:shadow-soft transition">
+              <img src="assets/icons/primary-blackboard.svg" alt="" class="w-[75px] h-[75px] mx-auto mb-2" />
+              <div class="crooked mx-auto mb-3"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px] h-[26px] max-w-none" /></div>
+              <h2 class="text-xl font-semibold text-dark mb-2">Strategic Planning</h2>
+              <p class="text-sm mb-3">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit.</p>
+              <span class="view-arrow inline-flex items-center gap-1 font-medium text-primary">
+                View More <img src="assets/icons/primary-arrow-right.svg" alt="" class="w-[27px]" />
+              </span>
+            </a>
+            <a href="#services" class="link-hover block bg-white shadow-card text-center py-10 px-6 hover:shadow-soft transition">
+              <img src="assets/icons/primary-weight-balance.svg" alt="" class="w-[75px] h-[75px] mx-auto mb-2" />
+              <div class="crooked mx-auto mb-3"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px] h-[26px] max-w-none" /></div>
+              <h2 class="text-xl font-semibold text-dark mb-2">Financial Clean-Up</h2>
+              <p class="text-sm mb-3">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit.</p>
+              <span class="view-arrow inline-flex items-center gap-1 font-medium text-primary">
+                View More <img src="assets/icons/primary-arrow-right.svg" alt="" class="w-[27px]" />
+              </span>
+            </a>
+            <a href="#services" class="link-hover block bg-white shadow-card text-center py-10 px-6 hover:shadow-soft transition ">
+              <img src="assets/icons/primary-blackboard.svg" alt="" class="w-[75px] h-[75px] mx-auto mb-2" />
+              <div class="crooked mx-auto mb-3"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px] h-[26px] max-w-none" /></div>
+              <h2 class="text-xl font-semibold text-dark mb-2">Digital Marketing</h2>
+              <p class="text-sm mb-3">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit.</p>
+              <span class="view-arrow inline-flex items-center gap-1 font-medium text-primary">
+                View More <img src="assets/icons/primary-arrow-right.svg" alt="" class="w-[27px]" />
+              </span>
+            </a>
+            <a href="#services" class="link-hover block bg-white shadow-card text-center py-10 px-6 hover:shadow-soft transition ">
+              <img src="assets/icons/primary-weight-balance.svg" alt="" class="w-[75px] h-[75px] mx-auto mb-2" />
+              <div class="crooked mx-auto mb-3"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px] h-[26px] max-w-none" /></div>
+              <h2 class="text-xl font-semibold text-dark mb-2">Cost Transformation</h2>
+              <p class="text-sm mb-3">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendrerit.</p>
+              <span class="view-arrow inline-flex items-center gap-1 font-medium text-primary">
+                View More <img src="assets/icons/primary-arrow-right.svg" alt="" class="w-[27px]" />
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- About -->
+      <div id="aboutus" class="grid lg:grid-cols-2 gap-10 xl:gap-16 items-center pt-16 md:pt-24 pb-8">
+        <div class="grid grid-cols-2 gap-3 fade-up">
+          <div>
+            <img src="assets/generic/generic-1.jpg" alt="" class="w-full shadow-img" />
+          </div>
+          <div class="flex flex-col gap-3">
+            <img src="assets/generic/generic-2.jpg" alt="" class="w-full shadow-img" />
+            <img src="assets/generic/generic-3.jpg" alt="" class="w-full shadow-img" />
+          </div>
+        </div>
+        <div class="fade-up" style="transition-delay: 0.15s;">
+          <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] mb-3">ABOUT US</h2>
+          <h3 class="text-dark text-3xl md:text-4xl font-semibold leading-snug mb-5">
+            We deliver the most advanced strategies for your business
+          </h3>
+          <p class="text-base md:text-lg mb-8 leading-relaxed">
+            Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non. Cras a elit sit amet leo acun volutpat. Suspendisse hendrerit vehicula leo, vel efficitur fel.
+          </p>
+          <div class="grid grid-cols-12 gap-4 items-center mb-8">
+            <div class="col-span-5 flex items-start gap-2">
+              <img src="assets/icons/primary-label.svg" alt="" class="w-[63px] h-[63px] hidden xl:block" />
+              <span class="text-sm font-bold text-dark pt-1">
+                <strong class="block text-4xl font-bold mb-1">240+</strong>
+                Satisfied Clients
+              </span>
+            </div>
+            <div class="col-span-7">
+              <blockquote class="border-l-[12px] border-gray-100 pl-4 py-1 m-0">
+                <p class="mb-0 text-sm md:text-base">Cras a elit sit amet leo accumsan volutpat. Suspendisse.</p>
+              </blockquote>
+            </div>
+          </div>
+          <a href="#contact" class="btn-offset inline-flex bg-primary text-white font-semibold px-6 py-3 text-base">
+            <span>Get a Quote</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== CLIENT LOGOS ========== -->
+    <div class="py-12 md:py-16 overflow-hidden">
+      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 px-4 opacity-70">
+        <img src="assets/logos/logo-8.png" alt="" class="max-h-[40px] w-auto max-w-[90px]" />
+        <img src="assets/logos/logo-9.png" alt="" class="max-h-[40px] w-auto max-w-[140px]" />
+        <img src="assets/logos/logo-10.png" alt="" class="max-h-[40px] w-auto max-w-[140px]" />
+        <img src="assets/logos/logo-11.png" alt="" class="max-h-[40px] w-auto max-w-[140px]" />
+        <img src="assets/logos/logo-12.png" alt="" class="max-h-[40px] w-auto max-w-[100px]" />
+        <img src="assets/logos/logo-13.png" alt="" class="max-h-[40px] w-auto max-w-[100px]" />
+        <img src="assets/logos/logo-14.png" alt="" class="max-h-[40px] w-auto max-w-[140px]" />
+        <img src="assets/logos/logo-15.png" alt="" class="max-h-[40px] w-auto max-w-[110px]" />
+      </div>
+    </div>
+
+    <!-- ========== SERVICES ========== -->
+    <section id="services" class="relative bg-grey-light pt-20 pb-16 md:pb-24">
+      <div class="shape-top absolute top-0 left-0 w-full h-[80px] md:h-[100px] -mt-px">
+        <svg viewBox="0 0 1920 123" preserveAspectRatio="none" class="w-full h-full">
+          <polygon fill="#F4F4F4" points="0,90 221,60 563,88 931,35 1408,93 1920,41 1920,-1 0,-1" />
+          <polygon fill="#FFFFFF" points="0,75 219,44 563,72 930,19 1408,77 1920,25 1920,-1 0,-1" />
+        </svg>
+      </div>
+      <div class="max-w-container mx-auto px-4 relative z-[1]">
+        <div class="text-center max-w-3xl mx-auto mb-12 fade-up">
+          <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] mb-3">WHAT WE DO</h2>
+          <h3 class="text-dark text-3xl md:text-4xl font-semibold mb-4">Our Premium Services</h3>
+          <p class="text-base md:text-lg leading-relaxed">
+            Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non. Cras a elit sit amet leo acun volutpat. Suspendisse hendrerit vehicula leo, vel efficitur fel.
+          </p>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          <!-- service cards -->
+          <a href="#services" class="link-hover group block bg-white shadow-soft overflow-hidden">
+            <div class="relative overlay-dark">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <h4 class="font-semibold text-white text-xl mb-1">Sales &amp; Marketing</h4>
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/services/services-1.jpg" alt="Sales & Marketing" class="w-full" />
+            </div>
+            <div class="flex items-center gap-3 px-4 py-4">
+              <p class="flex-1 text-sm mb-0">Cras a elit sit amet leo accumsan. Suspendisse hendrerit.</p>
+              <img src="assets/icons/primary-arrow-right.svg" alt="" class="view-arrow w-[40px] shrink-0" />
+            </div>
+          </a>
+          <a href="#services" class="link-hover group block bg-white shadow-soft overflow-hidden">
+            <div class="relative overlay-dark">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <h4 class="font-semibold text-white text-xl mb-1">Strategic Planning</h4>
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/services/services-2.jpg" alt="Strategic Planning" class="w-full" />
+            </div>
+            <div class="flex items-center gap-3 px-4 py-4">
+              <p class="flex-1 text-sm mb-0">Cras a elit sit amet leo accumsan. Suspendisse hendrerit.</p>
+              <img src="assets/icons/primary-arrow-right.svg" alt="" class="view-arrow w-[40px] shrink-0" />
+            </div>
+          </a>
+          <a href="#services" class="link-hover group block bg-white shadow-soft overflow-hidden">
+            <div class="relative overlay-dark">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <h4 class="font-semibold text-white text-xl mb-1">Operations</h4>
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/services/services-3.jpg" alt="Operations" class="w-full" />
+            </div>
+            <div class="flex items-center gap-3 px-4 py-4">
+              <p class="flex-1 text-sm mb-0">Cras a elit sit amet leo accumsan. Suspendisse hendrerit.</p>
+              <img src="assets/icons/primary-arrow-right.svg" alt="" class="view-arrow w-[40px] shrink-0" />
+            </div>
+          </a>
+          <a href="#services" class="link-hover group block bg-white shadow-soft overflow-hidden">
+            <div class="relative overlay-dark">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <h4 class="font-semibold text-white text-xl mb-1">Cost Transformation</h4>
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/services/services-4.jpg" alt="Cost Transformation" class="w-full" />
+            </div>
+            <div class="flex items-center gap-3 px-4 py-4">
+              <p class="flex-1 text-sm mb-0">Cras a elit sit amet leo accumsan. Suspendisse hendrerit.</p>
+              <img src="assets/icons/primary-arrow-right.svg" alt="" class="view-arrow w-[40px] shrink-0" />
+            </div>
+          </a>
+          <a href="#services" class="link-hover group block bg-white shadow-soft overflow-hidden">
+            <div class="relative overlay-dark">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <h4 class="font-semibold text-white text-xl mb-1">Digital Marketing</h4>
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/services/services-5.jpg" alt="Digital Marketing" class="w-full" />
+            </div>
+            <div class="flex items-center gap-3 px-4 py-4">
+              <p class="flex-1 text-sm mb-0">Cras a elit sit amet leo accumsan. Suspendisse hendrerit.</p>
+              <img src="assets/icons/primary-arrow-right.svg" alt="" class="view-arrow w-[40px] shrink-0" />
+            </div>
+          </a>
+          <a href="#services" class="link-hover group block bg-white shadow-soft overflow-hidden">
+            <div class="relative overlay-dark">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <h4 class="font-semibold text-white text-xl mb-1">Automation</h4>
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/services/services-6.jpg" alt="Automation" class="w-full" />
+            </div>
+            <div class="flex items-center gap-3 px-4 py-4">
+              <p class="flex-1 text-sm mb-0">Cras a elit sit amet leo accumsan. Suspendisse hendrerit.</p>
+              <img src="assets/icons/primary-arrow-right.svg" alt="" class="view-arrow w-[40px] shrink-0" />
+            </div>
+          </a>
+        </div>
+        <div class="text-center">
+          <a href="#services" class="btn-offset inline-flex bg-primary text-white font-semibold px-6 py-3 text-base">
+            <span>All Services</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHY US / BENEFITS ========== -->
+    <section class="relative bg-dark overflow-hidden">
+      <div class="shape-top absolute top-0 left-0 w-full h-[70px] md:h-[90px] z-[3]">
+        <svg viewBox="0 0 1920 102" preserveAspectRatio="none" class="w-full h-full">
+          <polygon fill="#F3F3F3" points="0,65 220,35 562,63 931,10 1410,68 1920,16 1920,103 0,103" />
+          <polygon fill="#F4F4F4" points="0,82 219,51 562,78 931,26 1409,83 1920,32 1920,103 0,103" />
+        </svg>
+      </div>
+      <div class="absolute top-0 left-0 h-full hidden lg:block w-[40%] overlay-primary bg-cover bg-center" style="background-image: url('assets/parallax/parallax-1.jpg');"></div>
+      <div class="relative z-[2] max-w-container mx-auto px-4 pt-24 pb-20 md:pt-28 md:pb-24">
+        <div class="grid lg:grid-cols-2 gap-10 items-center">
+          <div class="hidden lg:block">
+            <h2 class="text-clip-bg text-clip-bg-light text-[5rem] xl:text-[6.5rem] font-bold leading-none float-right pe-8"
+                style="background-image: url('assets/backgrounds/text-background-2.jpg');">
+              BENEFITS
+            </h2>
+          </div>
+          <div class="fade-up">
+            <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] mb-3">WHY US</h2>
+            <h3 class="text-white text-3xl md:text-4xl font-medium leading-snug mb-5">
+              Learn Here The Main Reasons Why You Should Choose Us
+            </h3>
+            <p class="text-base md:text-lg text-gray-300 mb-8 leading-relaxed">
+              Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non.
+            </p>
+            <ul class="space-y-5">
+              <li class="flex items-start gap-4">
+                <span class="shrink-0 w-11 h-11 rounded-full bg-grey-mid flex items-center justify-center text-white"><i class="fas fa-check"></i></span>
+                <span class="text-base text-gray-200 pt-2">We wil identify where you're getting off-track in all areas and not just</span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="shrink-0 w-11 h-11 rounded-full bg-grey-mid flex items-center justify-center text-white"><i class="fas fa-check"></i></span>
+                <span class="text-base text-gray-200 pt-2">We create a program that accelerates your strategic execution and growth goals.</span>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="shrink-0 w-11 h-11 rounded-full bg-grey-mid flex items-center justify-center text-white"><i class="fas fa-check"></i></span>
+                <span class="text-base text-gray-200 pt-2">Consistently hit strategic objectives and revenue targets, and grow, year over year.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <div class="max-w-container mx-auto px-4 py-16 md:py-24">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 fade-up">
+          <h2 class="text-dark text-3xl md:text-4xl font-semibold leading-snug mb-5">
+            Skills That Make a Meaningful Difference for Your Business
+          </h2>
+          <p class="text-base md:text-lg mb-10 leading-relaxed">
+            Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non. Cras a elit sit amet leo acun volutpat.
+          </p>
+          <div id="progress-bars" class="space-y-1">
+            <div class="flex justify-between text-dark font-semibold text-xs tracking-wide mb-2">
+              <span>STRATEGY ACCELERATION</span><span>90%</span>
+            </div>
+            <div class="h-1.5 bg-gray-200 mb-4">
+              <div class="progress-bar-fill" data-width="90%"></div>
+            </div>
+            <hr class="border-gray-200 my-3" />
+            <div class="flex justify-between text-dark font-semibold text-xs tracking-wide mb-2 pt-1">
+              <span>REVENUE GROWTH</span><span>80%</span>
+            </div>
+            <div class="h-1.5 bg-gray-200 mb-4">
+              <div class="progress-bar-fill" data-width="80%"></div>
+            </div>
+            <hr class="border-gray-200 my-3" />
+            <div class="flex justify-between text-dark font-semibold text-xs tracking-wide mb-2 pt-1">
+              <span>FIREWALK SALES</span><span>50%</span>
+            </div>
+            <div class="h-1.5 bg-gray-200 mb-4">
+              <div class="progress-bar-fill" data-width="50%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 fade-up">
+          <img src="assets/generic/generic-4.jpg" alt="" class="w-full" />
+        </div>
+      </div>
+    </div>
+
+    <!-- ========== TEAM ========== -->
+    <section id="team" class="relative bg-grey-light pt-20 pb-16 md:pb-24">
+      <div class="shape-top absolute top-0 left-0 w-full h-[80px] md:h-[100px] -mt-px">
+        <svg viewBox="0 0 1920 123" preserveAspectRatio="none" class="w-full h-full">
+          <polygon fill="#F3F3F3" points="0,90 221,60 563,88 931,35 1408,93 1920,41 1920,-1 0,-1" />
+          <polygon fill="#FFFFFF" points="0,75 219,44 563,72 930,19 1408,77 1920,25 1920,-1 0,-1" />
+        </svg>
+      </div>
+      <div class="max-w-container mx-auto px-4 text-center mb-10 relative z-[1]">
+        <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] mb-3">THE MEMBERS</h2>
+        <h3 class="text-dark text-3xl md:text-4xl font-semibold mb-4">Our Amazing Team</h3>
+        <p class="text-base md:text-lg max-w-3xl mx-auto leading-relaxed">
+          Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non. Cras a elit sit amet leo acun volutpat. Suspendisse hendrerit vehicula leo, vel efficitur fel.
+        </p>
+      </div>
+      <div class="px-4 md:px-8 overflow-x-auto team-scroll">
+        <div class="flex gap-5 min-w-max md:min-w-0 md:grid md:grid-cols-3 xl:grid-cols-5 md:max-w-container md:mx-auto">
+          <a href="#team" class="link-hover block w-[260px] md:w-auto bg-white">
+            <div class="relative">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/team/team-1.jpg" alt="John Doe" class="w-full" />
+            </div>
+            <div class="p-4">
+              <h4 class="text-dark hover:text-primary text-xl mb-0">John Doe</h4>
+              <p class="text-base mb-0">CEO and Founder</p>
+            </div>
+          </a>
+          <a href="#team" class="link-hover block w-[260px] md:w-auto bg-white">
+            <div class="relative">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/team/team-2.jpg" alt="Robert Doe" class="w-full" />
+            </div>
+            <div class="p-4">
+              <h4 class="text-dark hover:text-primary text-xl mb-0">Robert Doe</h4>
+              <p class="text-base mb-0">CEO and Founder</p>
+            </div>
+          </a>
+          <a href="#team" class="link-hover block w-[260px] md:w-auto bg-white">
+            <div class="relative">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/team/team-3.jpg" alt="Jessica Doe" class="w-full" />
+            </div>
+            <div class="p-4">
+              <h4 class="text-dark hover:text-primary text-xl mb-0">Jessica Doe</h4>
+              <p class="text-base mb-0">CEO and Founder</p>
+            </div>
+          </a>
+          <a href="#team" class="link-hover block w-[260px] md:w-auto bg-white">
+            <div class="relative">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/team/team-4.jpg" alt="Monica Doe" class="w-full" />
+            </div>
+            <div class="p-4">
+              <h4 class="text-dark hover:text-primary text-xl mb-0">Monica Doe</h4>
+              <p class="text-base mb-0">CEO and Founder</p>
+            </div>
+          </a>
+          <a href="#team" class="link-hover block w-[260px] md:w-auto bg-white">
+            <div class="relative">
+              <div class="absolute bottom-0 left-0 w-full py-3 px-4 z-10">
+                <div class="crooked"><img src="assets/icons/primary-infinite-crooked-line.svg" alt="" class="w-[154px]" /></div>
+              </div>
+              <img src="assets/team/team-5.jpg" alt="Chris Doe" class="w-full" />
+            </div>
+            <div class="p-4">
+              <h4 class="text-dark hover:text-primary text-xl mb-0">Chris Doe</h4>
+              <p class="text-base mb-0">CEO and Founder</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" class="relative bg-dark overflow-hidden">
+      <div class="shape-top absolute top-0 left-0 w-full h-[70px] md:h-[90px] z-[3]">
+        <svg viewBox="0 0 1920 102" preserveAspectRatio="none" class="w-full h-full">
+          <polygon fill="#F3F3F3" points="0,65 220,35 562,63 931,10 1410,68 1920,16 1920,103 0,103" />
+          <polygon fill="#F4F4F4" points="0,82 219,51 562,78 931,26 1409,83 1920,32 1920,103 0,103" />
+        </svg>
+      </div>
+      <div class="absolute top-0 right-0 hidden md:block h-full w-[32%] overlay-primary bg-cover bg-center" style="background-image: url('assets/backgrounds/background-2.jpg');"></div>
+      <div class="relative z-[2] max-w-container mx-auto px-4 pt-24 pb-20">
+        <div class="max-w-2xl fade-up">
+          <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] mb-3">GET IN TOUCH</h2>
+          <h3 class="text-white text-3xl md:text-4xl font-medium leading-snug mb-5">
+            Send Us a Message and Learn More About Our Services
+          </h3>
+          <p class="text-base md:text-lg text-gray-300 mb-8 leading-relaxed">
+            Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non. Cras a elit sit amet.
+          </p>
+          <form id="contact-form" class="space-y-4">
+            <div id="form-success" class="hidden bg-green-600/20 border border-green-500 text-green-200 px-4 py-3 text-sm">
+              <strong>Success!</strong> Your message has been sent to us.
+            </div>
+            <div id="form-error" class="hidden bg-red-600/20 border border-red-500 text-red-200 px-4 py-3 text-sm">
+              <strong>Error!</strong> There was an error sending your message.
+            </div>
+            <input type="text" name="name" required placeholder="* Full Name"
+              class="w-full bg-transparent border border-grey-border text-white placeholder-gray-400 px-4 py-3 text-sm focus:outline-none focus:border-primary" />
+            <input type="email" name="email" required placeholder="* Email Address"
+              class="w-full bg-transparent border border-grey-border text-white placeholder-gray-400 px-4 py-3 text-sm focus:outline-none focus:border-primary" />
+            <textarea name="message" required rows="7" placeholder="* Message"
+              class="w-full bg-transparent border border-grey-border text-white placeholder-gray-400 px-4 py-3 text-sm focus:outline-none focus:border-primary resize-y"></textarea>
+            <button type="submit" class="btn-offset inline-flex bg-primary text-white font-semibold px-6 py-3 text-base">
+              <span>Send Message</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TESTIMONIALS ========== -->
+    <section class="bg-cover bg-center py-16 md:py-24" style="background-image: url('assets/backgrounds/background-3.jpg');">
+      <div class="max-w-container mx-auto px-4">
+        <div class="text-center mb-10 fade-up">
+          <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] mb-3">TESTIMONIALS</h2>
+          <h3 class="text-dark text-3xl md:text-4xl font-semibold">What People Say</h3>
+        </div>
+        <div class="max-w-4xl mx-auto relative fade-up">
+          <div class="bg-white shadow-soft px-6 md:px-16 py-10 md:py-14 relative">
+            <button id="testimonial-prev" class="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-12 h-12 items-center justify-center bg-white shadow-soft text-dark hover:text-primary" aria-label="Previous">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="testimonial-next" class="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-12 h-12 items-center justify-center bg-white shadow-soft text-dark hover:text-primary" aria-label="Next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div id="testimonials">
+              <div class="testimonial-slide">
+                <img src="assets/icons/primary-left-quote.svg" alt="" class="w-10 h-10 mb-4" />
+                <p class="text-dark text-lg md:text-xl leading-relaxed mb-6">
+                  Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non. Cras a elit sit amet leo acun volutpat. Suspendisse hendrerit vehicula leo, vel efficitur fel.
+                </p>
+                <p class="mb-0">
+                  <strong class="text-dark text-xl font-bold">- John Doe</strong>
+                </p>
+                <p class="text-dark mb-0">Porto Founder</p>
+              </div>
+              <div class="testimonial-slide hidden">
+                <img src="assets/icons/primary-left-quote.svg" alt="" class="w-10 h-10 mb-4" />
+                <p class="text-dark text-lg md:text-xl leading-relaxed mb-6">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget risus porta, tincidunt turpis at, interdum tortor. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+                <p class="mb-0">
+                  <strong class="text-dark text-xl font-bold">- John Smith</strong>
+                </p>
+                <p class="text-dark mb-0">Porto Founder</p>
+              </div>
+            </div>
+            <div class="flex justify-center gap-2 mt-8 lg:hidden" id="testimonial-dots"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BLOG ========== -->
+    <div id="blog" class="max-w-container mx-auto px-4 py-16 md:py-24">
+      <div class="text-center max-w-3xl mx-auto mb-12 fade-up">
+        <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] mb-3">THE BLOG</h2>
+        <h3 class="text-dark text-3xl md:text-4xl font-semibold mb-4">Our Recent News</h3>
+        <p class="text-base md:text-lg leading-relaxed">
+          Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur felis ultrices non. Cras a elit sit amet leo acun volutpat. Suspendisse hendrerit vehicula leo, vel efficitur fel.
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <a href="#blog" class="link-hover block bg-white shadow-soft overflow-hidden group">
+          <div class="relative">
+            <div class="absolute bottom-4 right-4 z-10">
+              <span class="date-badge inline-block bg-primary text-white text-center font-semibold text-xl leading-tight px-3 py-2">
+                <span class="relative z-[1]">18<span class="block text-[0.6em] tracking-widest px-1">FEB</span></span>
+              </span>
+            </div>
+            <img src="assets/blog/blog-1.jpg" alt="" class="w-full" />
+          </div>
+          <div class="p-5">
+            <span class="block text-grey font-semibold tracking-widest text-xs mb-2">FINANCE</span>
+            <h4 class="font-semibold text-lg text-dark group-hover:text-primary mb-3">Lorem ipsum dolor sit a met, consectetur</h4>
+            <span class="view-arrow inline-flex items-center gap-1 font-medium text-primary">
+              View More <img src="assets/icons/primary-arrow-right.svg" alt="" class="w-[27px]" />
+            </span>
+          </div>
+        </a>
+        <a href="#blog" class="link-hover block bg-white shadow-soft overflow-hidden group">
+          <div class="relative">
+            <div class="absolute bottom-4 right-4 z-10">
+              <span class="date-badge inline-block bg-primary text-white text-center font-semibold text-xl leading-tight px-3 py-2">
+                <span class="relative z-[1]">15<span class="block text-[0.6em] tracking-widest px-1">FEB</span></span>
+              </span>
+            </div>
+            <img src="assets/blog/blog-2.jpg" alt="" class="w-full" />
+          </div>
+          <div class="p-5">
+            <span class="block text-grey font-semibold tracking-widest text-xs mb-2">FINANCE</span>
+            <h4 class="font-semibold text-lg text-dark group-hover:text-primary mb-3">Lorem ipsum dolor sit a met, consectetur</h4>
+            <span class="view-arrow inline-flex items-center gap-1 font-medium text-primary">
+              View More <img src="assets/icons/primary-arrow-right.svg" alt="" class="w-[27px]" />
+            </span>
+          </div>
+        </a>
+        <a href="#blog" class="link-hover block bg-white shadow-soft overflow-hidden group">
+          <div class="relative">
+            <div class="absolute bottom-4 right-4 z-10">
+              <span class="date-badge inline-block bg-primary text-white text-center font-semibold text-xl leading-tight px-3 py-2">
+                <span class="relative z-[1]">12<span class="block text-[0.6em] tracking-widest px-1">FEB</span></span>
+              </span>
+            </div>
+            <img src="assets/blog/blog-3.jpg" alt="" class="w-full" />
+          </div>
+          <div class="p-5">
+            <span class="block text-grey font-semibold tracking-widest text-xs mb-2">FINANCE</span>
+            <h4 class="font-semibold text-lg text-dark group-hover:text-primary mb-3">Lorem ipsum dolor sit a met, consectetur</h4>
+            <span class="view-arrow inline-flex items-center gap-1 font-medium text-primary">
+              View More <img src="assets/icons/primary-arrow-right.svg" alt="" class="w-[27px]" />
+            </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="bg-cover bg-center text-gray-300" style="background-image: url('assets/backgrounds/background-4.jpg');">
+    <div class="max-w-container mx-auto px-4 pt-10">
+      <div class="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 py-10">
+        <h2 class="font-semibold text-white text-3xl md:text-4xl mb-0">Porto Business Consulting Group</h2>
+        <a href="#contact" class="btn-offset inline-flex bg-primary text-white font-medium px-6 py-3 text-base">
+          <span>Contact Us</span>
+        </a>
+      </div>
+      <hr class="border-white/20" />
+      <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-8 pt-12 pb-8">
+        <div class="lg:col-span-3">
+          <a href="index.html"><img src="assets/logo-footer.png" alt="Porto" width="123" height="33" class="mb-4" /></a>
+          <p class="text-base mb-5 leading-relaxed">Cras a elit sit amet leo accumsan volutpat. Suspendisse hendreriast ehicula leo, vel efficitur fel.</p>
+          <div class="flex gap-3">
+            <a href="https://facebook.com" target="_blank" rel="noopener" class="w-10 h-10 border border-white/30 flex items-center justify-center text-white hover:border-primary hover:text-primary" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com" target="_blank" rel="noopener" class="w-10 h-10 border border-white/30 flex items-center justify-center text-white hover:border-primary hover:text-primary" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener" class="w-10 h-10 border border-white/30 flex items-center justify-center text-white hover:border-primary hover:text-primary" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        <div class="lg:col-span-3 space-y-4">
+          <a href="tel:8001234567" class="flex items-center gap-2 text-white font-semibold hover:text-primary">
+            <img src="assets/icons/light-phone.svg" alt="" class="w-[25px]" /> (800) 123-4567
+          </a>
+          <a href="mailto:porto@domain.com" class="flex items-center gap-2 text-white font-semibold hover:text-primary">
+            <img src="assets/icons/light-email.svg" alt="" class="w-[25px]" /> porto@domain.com
+          </a>
+          <p class="flex items-start gap-2 text-white font-semibold mb-0">
+            <img src="assets/icons/light-map-pin.svg" alt="" class="w-[25px] mt-0.5" />
+            1234 Street Name, New York, NY 10000, USA
+          </p>
+        </div>
+        <div class="lg:col-span-4">
+          <div class="map-placeholder w-full h-[190px]" title="Map placeholder"></div>
+        </div>
+        <div class="lg:col-span-2">
+          <h4 class="font-bold text-white text-lg mb-4">Useful Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#contact" class="hover:text-primary"><i class="fas fa-angle-right me-1 text-grey"></i> Contact Us</a></li>
+            <li><a href="#services" class="hover:text-primary"><i class="fas fa-angle-right me-1 text-grey"></i> Our Services</a></li>
+            <li><a href="#" class="hover:text-primary"><i class="fas fa-angle-right me-1 text-grey"></i> Payment Methods</a></li>
+            <li><a href="#" class="hover:text-primary"><i class="fas fa-angle-right me-1 text-grey"></i> Services Guide</a></li>
+            <li><a href="#" class="hover:text-primary"><i class="fas fa-angle-right me-1 text-grey"></i> FAQs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-center pb-10">
+        <hr class="border-white/20 mt-4 mb-6" />
+        <p class="text-sm mb-0">Porto Business Consulting. © 2026. All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+    // Search
+    document.getElementById('search-toggle').addEventListener('click', () => {
+      document.getElementById('search-panel').classList.toggle('hidden');
+    });
+
+    // Sticky header
+    const navBar = document.getElementById('main-nav-bar');
+    const spacer = document.getElementById('nav-spacer');
+    const stickyAt = 120;
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > stickyAt) {
+        if (!navBar.classList.contains('is-stuck')) {
+          spacer.style.height = navBar.offsetHeight + 'px';
+          spacer.classList.remove('hidden');
+          navBar.classList.add('is-stuck');
+        }
+      } else {
+        navBar.classList.remove('is-stuck');
+        spacer.classList.add('hidden');
+      }
+    });
+
+    // Close mobile menu on link click
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    // Fade-up on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('visible');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Progress bars
+    const progressObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.progress-bar-fill').forEach(bar => {
+            bar.style.width = bar.dataset.width;
+          });
+          progressObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    const progressSection = document.getElementById('progress-bars');
+    if (progressSection) progressObserver.observe(progressSection);
+
+    // Testimonials
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const dotsWrap = document.getElementById('testimonial-dots');
+    let tIndex = 0;
+    slides.forEach((_, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+      btn.addEventListener('click', () => showTestimonial(i));
+      dotsWrap.appendChild(btn);
+    });
+    function showTestimonial(i) {
+      slides[tIndex].classList.add('hidden');
+      dotsWrap.children[tIndex]?.classList.remove('active');
+      tIndex = (i + slides.length) % slides.length;
+      slides[tIndex].classList.remove('hidden');
+      dotsWrap.children[tIndex]?.classList.add('active');
+    }
+    document.getElementById('testimonial-prev').addEventListener('click', () => showTestimonial(tIndex - 1));
+    document.getElementById('testimonial-next').addEventListener('click', () => showTestimonial(tIndex + 1));
+
+    // Contact form (demo only)
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('form-success').classList.remove('hidden');
+      document.getElementById('form-error').classList.add('hidden');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

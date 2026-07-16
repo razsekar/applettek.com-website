@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>When a small business is just starting out | APPLETTEK</title>
+  <meta name="description" content="When a small business is just starting out" />
+  <link rel="icon" href="../assets/brand/logos/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#F04C23', 100: '#ea3b10', soft: '#f25f3b' },
+            secondary: '#FF6037',
+            tertiary: '#DC380F',
+            quaternary: '#383F48',
+            dark: '#212529',
+            grey: { DEFAULT: '#777', light: '#F4F4F4', soft: '#F3F3F3', mid: '#5a6267', border: '#404040' }
+          },
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          boxShadow: {
+            card: '0 0 40px 0 rgba(187, 187, 187, 0.3)',
+            soft: '0 12px 40px rgba(0,0,0,0.08)',
+            img: '0 10px 30px rgba(0,0,0,0.12)',
+          },
+          maxWidth: { container: '1140px' }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/site.css" />
+  
+</head>
+<body class="bg-white antialiased" data-base="../" data-page="blog">
+  <div id="site-header"></div>
+  <main>
+
+    <section class="page-hero relative py-20 md:py-28 text-white" style="background-image: linear-gradient(rgba(33,37,41,0.75), rgba(33,37,41,0.75)), url('../assets/theme/backgrounds/background-1.jpg');">
+      <div class="max-w-container mx-auto px-4 relative z-[1]">
+        <p class="text-sm font-medium tracking-wider text-primary mb-3">Home | Blog</p>
+        <h1 class="text-4xl md:text-5xl font-semibold text-white">When a small business is just starting out</h1>
+      </div>
+    </section>
+
+    <article class="py-16 md:py-20">
+      <div class="max-w-3xl mx-auto px-4">
+        <img src="../assets/theme/blog/blog-2.jpg" alt="" class="w-full shadow-img mb-8" />
+        <p class="text-sm font-semibold text-primary mb-4">16 Feb 2023 · CONSULTING</p>
+        <div class="prose-content">
+        <p>Early-stage businesses often face a unique challenge: they need enterprise-grade capabilities without enterprise complexity or cost. The right IT decisions early on can accelerate growth — the wrong ones can create lasting technical debt.</p>
+        <p>Applettek helps small and growing businesses prioritize what matters: a solid website, secure collaboration tools, lightweight ERP or accounting integrations, and a plan that scales.</p>
+        <p>Start with clarity on your goals, then invest in systems that support them without overengineering Day One.</p>
+        </div>
+        <a href="index.html" class="inline-flex items-center gap-2 text-primary font-medium mt-8"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+      </div>
+    </article>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="../js/site.js"></script>
+</body>
+</html>

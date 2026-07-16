@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Development | APPLETTEK</title>
+  <meta name="description" content="Applettek has decade-long experience in developing web-based solutions that can meet your business needs and help you strengthen your digital presence." />
+  <link rel="icon" href="../assets/brand/logos/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#F04C23', 100: '#ea3b10', soft: '#f25f3b' },
+            secondary: '#FF6037',
+            tertiary: '#DC380F',
+            quaternary: '#383F48',
+            dark: '#212529',
+            grey: { DEFAULT: '#777', light: '#F4F4F4', soft: '#F3F3F3', mid: '#5a6267', border: '#404040' }
+          },
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          boxShadow: {
+            card: '0 0 40px 0 rgba(187, 187, 187, 0.3)',
+            soft: '0 12px 40px rgba(0,0,0,0.08)',
+            img: '0 10px 30px rgba(0,0,0,0.12)',
+          },
+          maxWidth: { container: '1140px' }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../css/site.css" />
+  
+</head>
+<body class="bg-white antialiased" data-base="../" data-page="services">
+  <div id="site-header"></div>
+  <main>
+
+    <section class="page-hero relative py-20 md:py-28 text-white" style="background-image: linear-gradient(rgba(33,37,41,0.75), rgba(33,37,41,0.75)), url('../assets/theme/backgrounds/background-1.jpg');">
+      <div class="max-w-container mx-auto px-4 relative z-[1]">
+        <p class="text-sm font-medium tracking-wider text-primary mb-3">Home | Web Development</p>
+        <h1 class="text-4xl md:text-5xl font-semibold text-white">Web Development</h1>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20">
+      <div class="max-w-container mx-auto px-4">
+        <div class="grid lg:grid-cols-2 gap-12 items-start mb-14">
+          <div>
+            <h2 class="text-dark text-3xl font-semibold mb-4">Web solutions that strengthen your business</h2>
+            <p class="text-lg leading-relaxed mb-6">Applettek has decade-long experience in developing web-based solutions that can meet your business needs and help you strengthen your digital presence.</p>
+            <a href="../contact-us.html" class="btn-offset inline-flex bg-primary text-white font-semibold px-6 py-3"><span>Request Quote</span></a>
+          </div>
+          <div>
+            <img src="../assets/brand/images/web-development-1.png" alt="Web Development" class="w-full shadow-img object-contain bg-grey-light p-4" />
+          </div>
+        </div>
+        <h3 class="text-dark text-2xl font-semibold mb-6 text-center">What We Offer</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-white shadow-soft p-6">
+          <h3 class="text-dark text-xl font-semibold mb-2">Custom Web Applications</h3>
+          <p class="text-sm mb-0">Purpose-built applications tailored to your workflows.</p>
+        </div>
+        
+        <div class="bg-white shadow-soft p-6">
+          <h3 class="text-dark text-xl font-semibold mb-2">Corporate Websites</h3>
+          <p class="text-sm mb-0">Modern, responsive sites that reflect your brand.</p>
+        </div>
+        
+        <div class="bg-white shadow-soft p-6">
+          <h3 class="text-dark text-xl font-semibold mb-2">Portals & Dashboards</h3>
+          <p class="text-sm mb-0">Secure portals for customers, partners, and internal teams.</p>
+        </div>
+        
+        <div class="bg-white shadow-soft p-6">
+          <h3 class="text-dark text-xl font-semibold mb-2">API & Integration Development</h3>
+          <p class="text-sm mb-0">Connect systems and data across your landscape.</p>
+        </div>
+        
+        <div class="bg-white shadow-soft p-6">
+          <h3 class="text-dark text-xl font-semibold mb-2">UI/UX Design</h3>
+          <p class="text-sm mb-0">Us-centered interfaces that drive engagement.</p>
+        </div>
+        
+        <div class="bg-white shadow-soft p-6">
+          <h3 class="text-dark text-xl font-semibold mb-2">Maintenance & Support</h3>
+          <p class="text-sm mb-0">Ongoing updates, security patches, and enhancements.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+    
+  </main>
+  <div id="site-footer"></div>
+  <script src="../js/site.js"></script>
+</body>
+</html>
