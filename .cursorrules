@@ -17,17 +17,16 @@
 # Scratchpad
 
 ## Current Task
-Build complete Applettek website in website/ (Porto theme + Applettek content).
+Use Unsplash stock placeholders instead of old applettek.com images; AI assets later.
 
 ## Plan
-[X] Create website/ with reference/old-content and reference/porto-template
-[X] Merge brand + theme assets
-[X] Shared css/site.css + js/site.js (header/footer injector)
-[X] Homepage + all inner pages generated via build_pages.py
-[X] Local verify on :8765
+[X] Download stock images to website/assets/stock/
+[X] Rewire build_pages.py + regenerate pages
+[X] Remove live assets/brand/images and clients (logos kept)
+[X] Verify stock images serve on :8765
 
 ## Notes
-- Live site: website/ (serve from that folder)
-- Regenerate pages: `cd website && python3 build_pages.py`
-- Contacts: +1 (847) 722-4913, info@applettek.com, hr@applettek.com
-- Root index.html / content-reference/ kept as originals
+- Logos only: assets/brand/logos/
+- Photos: assets/stock/ (Unsplash placeholders — see SOURCES.md)
+- Old photos remain only under reference/old-content for content reference
+

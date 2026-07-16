@@ -7,7 +7,8 @@ Complete multi-page site: Porto Business Consulting 3 layout + Applettek content
 - `reference/old-content/` — cloned applettek.com content
 - `reference/porto-template/` — Porto HTML/Tailwind template snapshot
 - Live pages at this folder root (`index.html`, `about-us.html`, `services/`, etc.)
-- `assets/brand/` — Applettek logos and images
+- `assets/brand/logos/` — Applettek logos only
+- `assets/stock/` — temporary Unsplash placeholders (replace with AI-generated assets later)
 - `assets/theme/` — Porto visual assets
 - `css/site.css`, `js/site.js` — shared styles and chrome (header/footer)
 
