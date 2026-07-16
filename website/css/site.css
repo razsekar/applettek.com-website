@@ -1,0 +1,176 @@
+:root {
+  --primary: #F04C23;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: Poppins, sans-serif; color: #777; }
+
+.text-clip-bg {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 20% 30%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+@media (max-width: 991px) {
+  .text-clip-bg {
+    background-image: none !important;
+    -webkit-text-fill-color: #212529;
+    color: #212529;
+  }
+  .text-clip-bg-light {
+    -webkit-text-fill-color: #fff !important;
+    color: #fff !important;
+  }
+}
+
+.highlight-underline { position: relative; display: inline-block; }
+.highlight-underline::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  border-bottom: 7px solid #d20d0d;
+  opacity: 0.2;
+  z-index: 0;
+}
+
+.btn-offset { position: relative; transition: transform 300ms ease; }
+.btn-offset > span { position: relative; z-index: 1; }
+.btn-offset::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.7;
+  transform: translate(5px, 5px);
+  transition: transform 300ms ease;
+  z-index: 0;
+}
+.btn-offset:hover { transform: translate(2.5px, 2.5px); }
+.btn-offset:hover::before { transform: translate(0, 0); }
+
+.header-skew { position: relative; }
+.header-skew::before,
+.header-skew::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100%;
+  background: #212529;
+  transform: skewX(-25deg);
+  z-index: 0;
+}
+.header-skew::after {
+  top: 7px;
+  right: -7px;
+  z-index: -1;
+  opacity: 0.85;
+}
+
+.sticky-header { transition: box-shadow 0.3s ease; }
+.sticky-header.is-stuck {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: #fff;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+  animation: slideDown 0.35s ease;
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  to { transform: translateY(0); }
+}
+
+.shape-bottom svg,
+.shape-top svg { display: block; width: 100%; height: 100%; }
+
+.link-hover .view-arrow { transition: transform 300ms ease; }
+.link-hover:hover .view-arrow { transform: translateX(7px); }
+.link-hover .crooked { overflow: hidden; width: 77px; display: inline-block; }
+.link-hover:hover .crooked img { animation: crookedLine 2s linear infinite; }
+@keyframes crookedLine {
+  from { transform: translateX(0); }
+  to { transform: translateX(-48%); }
+}
+
+.date-badge { position: relative; transition: transform 300ms ease; }
+.date-badge::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  opacity: 0.7;
+  transform: translate(5px, 5px);
+  transition: transform 300ms ease;
+  z-index: 0;
+}
+.link-hover:hover .date-badge { transform: translate(2.5px, 2.5px); }
+.link-hover:hover .date-badge::before { transform: translate(0, 0); }
+
+.overlay-dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.65), rgba(0,0,0,0.15));
+  z-index: 1;
+}
+.overlay-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(240, 76, 35, 0.85);
+  z-index: 1;
+}
+
+.progress-bar-fill {
+  width: 0;
+  height: 100%;
+  background: var(--primary);
+  transition: width 1.4s ease;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.carousel-dot.active { background: var(--primary); }
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.team-scroll::-webkit-scrollbar { height: 6px; }
+.team-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+.page-hero {
+  background-size: cover;
+  background-position: center;
+}
+
+.prose-content h2 { color: #212529; font-weight: 600; font-size: 1.75rem; margin: 1.5rem 0 0.75rem; }
+.prose-content h3 { color: #212529; font-weight: 600; font-size: 1.25rem; margin: 1.25rem 0 0.5rem; }
+.prose-content p { margin-bottom: 1rem; line-height: 1.7; }
+.prose-content ul { list-style: disc; padding-left: 1.25rem; margin-bottom: 1rem; }
+.prose-content li { margin-bottom: 0.4rem; }
+
+.job-card { border: 1px solid #eee; transition: box-shadow 0.2s; }
+.job-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,0.08); }

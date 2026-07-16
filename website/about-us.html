@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us | APPLETTEK</title>
+  <meta name="description" content="Learn about Applettek IT consulting services and how we help organizations transform with technology." />
+  <link rel="icon" href="assets/brand/logos/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: { DEFAULT: '#F04C23', 100: '#ea3b10', soft: '#f25f3b' },
+            secondary: '#FF6037',
+            tertiary: '#DC380F',
+            quaternary: '#383F48',
+            dark: '#212529',
+            grey: { DEFAULT: '#777', light: '#F4F4F4', soft: '#F3F3F3', mid: '#5a6267', border: '#404040' }
+          },
+          fontFamily: { sans: ['Poppins', 'sans-serif'] },
+          boxShadow: {
+            card: '0 0 40px 0 rgba(187, 187, 187, 0.3)',
+            soft: '0 12px 40px rgba(0,0,0,0.08)',
+            img: '0 10px 30px rgba(0,0,0,0.12)',
+          },
+          maxWidth: { container: '1140px' }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/site.css" />
+  
+</head>
+<body class="bg-white antialiased" data-base="" data-page="about">
+  <div id="site-header"></div>
+  <main>
+
+    <section class="page-hero relative py-20 md:py-28 text-white" style="background-image: linear-gradient(rgba(33,37,41,0.75), rgba(33,37,41,0.75)), url('assets/theme/backgrounds/background-1.jpg');">
+      <div class="max-w-container mx-auto px-4 relative z-[1]">
+        <p class="text-sm font-medium tracking-wider text-primary mb-3">Home | About Us</p>
+        <h1 class="text-4xl md:text-5xl font-semibold text-white">About Us</h1>
+      </div>
+    </section>
+
+    <section class="py-16 md:py-20 bg-white">
+      <div class="max-w-container mx-auto px-4">
+        
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <div>
+            <img src="assets/brand/images/about-3.jpg" alt="About Applettek" class="w-full shadow-img mb-4" />
+            <img src="assets/brand/images/about-4.jpg" alt="" class="w-full shadow-img" />
+          </div>
+          <div class="prose-content">
+            <h2 class="highlight-underline text-primary text-sm font-medium tracking-[0.15em] !mt-0 !text-sm !font-medium">ABOUT US</h2>
+            <h3 class="!text-3xl !md:text-4xl">IT with Applettek</h3>
+            <p>IT consulting services encompass a wide range of expertise and assistance in leveraging technology to address business challenges and improve organizational efficiency. IT consultants offer guidance in areas such as technology strategy, system implementation and integration, cybersecurity, data management, cloud computing, digital transformation, and more.</p>
+            <p>They collaborate with clients to analyze their specific needs, identify opportunities for improvement, design tailored solutions, and provide implementation support.</p>
+            <h3>Implement solutions &amp; achieve goals</h3>
+            <p>We are dedicated to delivering tailored IT solutions that drive success, enhance efficiency, and foster innovation. Our team of experts is committed to understanding your unique needs and providing personalized solutions that meet your business goals.</p>
+            <a href="contact-us.html" class="btn-offset inline-flex bg-primary text-white font-semibold px-6 py-3 text-base mt-4"><span>Contact Us</span></a>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="js/site.js"></script>
+</body>
+</html>
