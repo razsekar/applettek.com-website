@@ -77,9 +77,9 @@
 
   <div id="main-nav-bar" class="sticky-header bg-white">
     <div class="max-w-container mx-auto px-4">
-      <div class="flex items-center justify-between h-[90px] lg:h-[100px]">
-        <a href="${href('index.html')}" class="shrink-0">
-          <img src="${asset('assets/brand/logos/Applettek-logo.png')}" alt="Applettek" class="h-10 md:h-12 w-auto max-w-[180px] object-contain" />
+      <div class="flex items-center justify-between h-[100px] lg:h-[110px]">
+        <a href="${href('index.html')}" class="shrink-0 py-1">
+          <img src="${asset('assets/brand/logos/Applettek-logo.png')}" alt="APPLETTEK — AI Enabled. Future Ready." class="h-14 md:h-16 w-auto max-w-[220px] object-contain" />
         </a>
 
         <nav class="hidden lg:flex items-center gap-0.5 xl:gap-1">
@@ -150,7 +150,9 @@
     <hr class="border-white/20" />
     <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-8 pt-12 pb-8">
       <div class="lg:col-span-4">
-        <a href="${href('index.html')}"><img src="${asset('assets/brand/logos/Applettek-whitelogo.png')}" alt="Applettek" class="mb-4 h-10 w-auto object-contain" /></a>
+        <a href="${href('index.html')}" class="inline-block bg-white rounded-md px-3 py-2 mb-4">
+          <img src="${asset('assets/brand/logos/Applettek-logo.png')}" alt="APPLETTEK — AI Enabled. Future Ready." class="h-14 w-auto max-w-[200px] object-contain" />
+        </a>
         <p class="text-base mb-5 leading-relaxed">IT consulting services encompass a wide range of expertise and assistance in leveraging technology to address business challenges and improve organizational efficiency.</p>
         <div class="flex gap-3">
           <a href="https://facebook.com" target="_blank" rel="noopener" class="w-10 h-10 border border-white/30 flex items-center justify-center text-white hover:border-primary hover:text-primary" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
