@@ -1,0 +1,32 @@
+# Lessons
+
+## User Specified Lessons
+
+- You have a python venv in ./venv. Always use (activate) it when doing python development. First, to check whether 'uv' is available, use `which uv`. If that's the case, first activate the venv, and then use `uv pip install` to install packages. Otherwise, fall back to `pip`.
+- Due to Cursor's limit, when you use `git` and `gh` and need to submit a multiline commit message, first write the message in a file, and then use `git commit -F <filename>` or similar command to commit. And then remove the file. Include "[Cursor] " in the commit message and PR title.
+
+## Cursor learned
+
+- For search results, ensure proper handling of different character encodings (UTF-8) for international queries
+- When using seaborn styles in matplotlib, use 'seaborn-v0_8' instead of 'seaborn' as the style name due to recent seaborn version changes
+- Use 'gpt-4o' as the model name for OpenAI's GPT-4 with vision capabilities
+- When searching for recent news, use the current year (2025) instead of previous years, or simply use the "recent" keyword to get the latest information
+- Porto Business Consulting 3 skin colors: primary #F04C23, secondary #FF6037, tertiary #DC380F, quaternary #383F48; font Poppins
+
+# Scratchpad
+
+## Current Task
+Clone Porto Business Consulting 3 demo and recreate in plain HTML + Tailwind CSS.
+Source: https://www.okler.net/previews/porto/13.1.0/demo-business-consulting-3.html
+
+## Plan
+[X] Inspect homepage structure, styles, assets, colors
+[X] Create project structure (index.html + Tailwind via CDN)
+[X] Recreate header, hero, sections, footer matching original
+[X] Add interactivity (mobile nav, sticky header, testimonials, progress bars, form)
+[ ] Verify visually against original (open locally)
+
+## Notes
+- Single-page clone: index.html + assets/ from Porto demo
+- Tailwind CDN + Poppins + Font Awesome
+- Serving at http://127.0.0.1:8765 for local preview
