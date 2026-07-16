@@ -1,0 +1,772 @@
+<!doctype html>
+<html lang="en-US">
+
+<head><meta charset="UTF-8"><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(){this.triggerEvents=["keydown","mousedown","mousemove","touchmove","touchstart","touchend","wheel"],this.userEventHandler=this._triggerListener.bind(this),this.touchStartHandler=this._onTouchStart.bind(this),this.touchMoveHandler=this._onTouchMove.bind(this),this.touchEndHandler=this._onTouchEnd.bind(this),this.clickHandler=this._onClick.bind(this),this.interceptedClicks=[],window.addEventListener("pageshow",e=>{this.persisted=e.persisted}),window.addEventListener("DOMContentLoaded",()=>{this._preconnect3rdParties()}),this.delayedScripts={normal:[],async:[],defer:[]},this.trash=[],this.allJQueries=[]}_addUserInteractionListener(e){if(document.hidden){e._triggerListener();return}this.triggerEvents.forEach(t=>window.addEventListener(t,e.userEventHandler,{passive:!0})),window.addEventListener("touchstart",e.touchStartHandler,{passive:!0}),window.addEventListener("mousedown",e.touchStartHandler),document.addEventListener("visibilitychange",e.userEventHandler)}_removeUserInteractionListener(){this.triggerEvents.forEach(e=>window.removeEventListener(e,this.userEventHandler,{passive:!0})),document.removeEventListener("visibilitychange",this.userEventHandler)}_onTouchStart(e){"HTML"!==e.target.tagName&&(window.addEventListener("touchend",this.touchEndHandler),window.addEventListener("mouseup",this.touchEndHandler),window.addEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.addEventListener("mousemove",this.touchMoveHandler),e.target.addEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"onclick","rocket-onclick"),this._pendingClickStarted())}_onTouchMove(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler),e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this._pendingClickFinished()}_onTouchEnd(e){window.removeEventListener("touchend",this.touchEndHandler),window.removeEventListener("mouseup",this.touchEndHandler),window.removeEventListener("touchmove",this.touchMoveHandler,{passive:!0}),window.removeEventListener("mousemove",this.touchMoveHandler)}_onClick(e){e.target.removeEventListener("click",this.clickHandler),this._renameDOMAttribute(e.target,"rocket-onclick","onclick"),this.interceptedClicks.push(e),e.preventDefault(),e.stopPropagation(),e.stopImmediatePropagation(),this._pendingClickFinished()}_replayClicks(){window.removeEventListener("touchstart",this.touchStartHandler,{passive:!0}),window.removeEventListener("mousedown",this.touchStartHandler),this.interceptedClicks.forEach(e=>{e.target.dispatchEvent(new MouseEvent("click",{view:e.view,bubbles:!0,cancelable:!0}))})}_waitForPendingClicks(){return new Promise(e=>{this._isClickPending?this._pendingClickFinished=e:e()})}_pendingClickStarted(){this._isClickPending=!0}_pendingClickFinished(){this._isClickPending=!1}_renameDOMAttribute(e,t,i){e.hasAttribute&&e.hasAttribute(t)&&(event.target.setAttribute(i,event.target.getAttribute(t)),event.target.removeAttribute(t))}_triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}_preconnect3rdParties(){let e=[];document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(t=>{if(t.hasAttribute("src")){let i=new URL(t.src).origin;i!==location.origin&&e.push({src:i,crossOrigin:t.crossOrigin||"module"===t.getAttribute("data-rocket-type")})}}),e=[...new Map(e.map(e=>[JSON.stringify(e),e])).values()],this._batchInjectResourceHints(e,"preconnect")}async _loadEverythingNow(){this.lastBreath=Date.now(),this._delayEventListeners(this),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async);try{await this._triggerDOMContentLoaded(),await this._triggerWindowLoad()}catch(e){console.error(e)}window.dispatchEvent(new Event("rocket-allScriptsLoaded")),this._waitForPendingClicks().then(()=>{this._replayClicks()}),this._emptyTrash()}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach(e=>{e.hasAttribute("data-rocket-src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)})}async _transformScript(e){return await this._littleBreath(),new Promise(t=>{function i(){e.setAttribute("data-rocket-status","executed"),t()}function r(){e.setAttribute("data-rocket-status","failed"),t()}try{let n=e.getAttribute("data-rocket-type"),s=e.getAttribute("data-rocket-src");if(n?(e.type=n,e.removeAttribute("data-rocket-type")):e.removeAttribute("type"),e.addEventListener("load",i),e.addEventListener("error",r),s)e.src=s,e.removeAttribute("data-rocket-src");else if(navigator.userAgent.indexOf("Firefox/")>0){var a=document.createElement("script");[...e.attributes].forEach(e=>{"type"!==e.nodeName&&a.setAttribute("data-rocket-type"===e.nodeName?"type":e.nodeName,e.nodeValue)}),a.text=e.text,e.parentNode.replaceChild(a,e),i()}else e.src="data:text/javascript;base64,"+btoa(e.text)}catch(o){r()}})}async _loadScriptsFromList(e){let t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){this._batchInjectResourceHints([...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async],"preload")}_batchInjectResourceHints(e,t){var i=document.createDocumentFragment();e.forEach(e=>{let r=e.getAttribute&&e.getAttribute("data-rocket-src")||e.src;if(r){let n=document.createElement("link");n.href=r,n.rel=t,"preconnect"!==t&&(n.as="script"),e.getAttribute&&"module"===e.getAttribute("data-rocket-type")&&(n.crossOrigin=!0),e.crossOrigin&&(n.crossOrigin=e.crossOrigin),e.integrity&&(n.integrity=e.integrity),i.appendChild(n),this.trash.push(n)}}),document.head.appendChild(i)}_delayEventListeners(e){let t={};function i(e,i){!function e(i){!t[i]&&(t[i]={originalFunctions:{add:i.addEventListener,remove:i.removeEventListener},eventsToRewrite:[]},i.addEventListener=function(){arguments[0]=r(arguments[0]),t[i].originalFunctions.add.apply(i,arguments)},i.removeEventListener=function(){arguments[0]=r(arguments[0]),t[i].originalFunctions.remove.apply(i,arguments)});function r(e){return t[i].eventsToRewrite.indexOf(e)>=0?"rocket-"+e:e}}(e),t[e].eventsToRewrite.push(i)}function r(e,t){let i=e[t];Object.defineProperty(e,t,{get:()=>i||function(){},set(r){e["rocket"+t]=i=r}})}i(document,"DOMContentLoaded"),i(window,"DOMContentLoaded"),i(window,"load"),i(window,"pageshow"),i(document,"readystatechange"),r(document,"onreadystatechange"),r(window,"onload"),r(window,"onpageshow"),Object.defineProperty(document,"readyState",{get:()=>e.rocketReadyState,set(t){e.rocketReadyState=t}}),document.readyState="loading"}_delayJQueryReady(e){let t;function i(i){if(i&&i.fn&&!e.allJQueries.includes(i)){i.fn.ready=i.fn.init.prototype.ready=function(t){return e.domReadyFired?t.bind(document)(i):document.addEventListener("rocket-DOMContentLoaded",()=>t.bind(document)(i)),i([])};let r=i.fn.on;i.fn.on=i.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map(e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach(t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]})}return r.apply(this,arguments),this},e.allJQueries.push(i)}t=i}i(window.jQuery),Object.defineProperty(window,"jQuery",{get:()=>t,set(e){i(e)}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,document.readyState="interactive",await this._littleBreath(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._littleBreath(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._littleBreath(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){document.readyState="complete",await this._littleBreath(),window.dispatchEvent(new Event("rocket-load")),await this._littleBreath(),window.rocketonload&&window.rocketonload(),await this._littleBreath(),this.allJQueries.forEach(e=>e(window).trigger("rocket-jquery-load")),await this._littleBreath();let e=new Event("rocket-pageshow");e.persisted=this.persisted,window.dispatchEvent(e),await this._littleBreath(),window.rocketonpageshow&&window.rocketonpageshow({persisted:this.persisted})}_handleDocumentWrite(){let e=new Map;document.write=document.writeln=function(t){let i=document.currentScript;i||console.error("WPRocket unable to document.write this: "+t);let r=document.createRange(),n=i.parentElement,s=e.get(i);void 0===s&&(s=i.nextSibling,e.set(i,s));let a=document.createDocumentFragment();r.setStart(a,0),a.appendChild(r.createContextualFragment(t)),n.insertBefore(a,s)}}async _littleBreath(){Date.now()-this.lastBreath>45&&(await this._requestAnimFrame(),this.lastBreath=Date.now())}async _requestAnimFrame(){return document.hidden?new Promise(e=>setTimeout(e)):new Promise(e=>requestAnimationFrame(e))}_emptyTrash(){this.trash.forEach(e=>e.remove())}static run(){let e=new RocketLazyLoadScripts;e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();</script>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+
+	<title>Mobile Applications &#8211; APPLETTEK</title>
+<meta name='robots' content='max-image-preview:large' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="APPLETTEK &raquo; Feed" href="https://applettek.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="APPLETTEK &raquo; Comments Feed" href="https://applettek.com/comments/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://applettek.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fapplettek.com%2Fmobile-applications%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://applettek.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fapplettek.com%2Fmobile-applications%2F&#038;format=xml" />
+<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://applettek.com/wp-includes/css/dist/block-library/style.min.css?ver=6.9.4' media='all' />
+
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link data-minify="1" rel='stylesheet' id='contact-form-7-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=1695626183' media='all' />
+<link rel='stylesheet' id='simple-job-board-google-fonts-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100i%2C300%2C300i%2C400%2C400i%2C500%2C500i%2C700%2C700i%2C900%2C900i&#038;ver=2.10.5' media='all' />
+<link data-minify="1" rel='stylesheet' id='sjb-fontawesome-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/plugins/simple-job-board/includes/css/font-awesome.min.css?ver=1695626183' media='all' />
+<link data-minify="1" rel='stylesheet' id='simple-job-board-jquery-ui-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/plugins/simple-job-board/public/css/jquery-ui.css?ver=1695626183' media='all' />
+<link data-minify="1" rel='stylesheet' id='simple-job-board-frontend-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/plugins/simple-job-board/public/css/simple-job-board-public.css?ver=1695626183' media='all' />
+<link rel='stylesheet' id='bootstrap-css' href='https://applettek.com/wp-content/themes/conbix/assets/css/bootstrap.min.css?ver=1.0.2' media='all' />
+<link data-minify="1" rel='stylesheet' id='fontawesome-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/themes/conbix/assets/css/all.css?ver=1695626183' media='all' />
+<link rel='stylesheet' id='meanmenu-css' href='https://applettek.com/wp-content/themes/conbix/assets/css/meanmenu.min.css?ver=1.0.2' media='all' />
+<link data-minify="1" rel='stylesheet' id='animate-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/themes/conbix/assets/css/animate.css?ver=1695626183' media='all' />
+<link data-minify="1" rel='stylesheet' id='swiper-bundle-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/themes/conbix/assets/css/swiper-bundle.min.css?ver=1695626183' media='all' />
+<link data-minify="1" rel='stylesheet' id='magnific-popup-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/themes/conbix/assets/css/magnific-popup.css?ver=1695626183' media='all' />
+<link data-minify="1" rel='stylesheet' id='conbix-sass-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/themes/conbix/assets/sass/style.css?ver=1695626183' media='all' />
+<link data-minify="1" rel='stylesheet' id='conbix-style-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/themes/conbix/style.css?ver=1695626183' media='all' />
+<link data-minify="1" rel='stylesheet' id='elementor-icons-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/eicons/css/elementor-icons.min.css?ver=1695626183' media='all' />
+<link rel='stylesheet' id='elementor-frontend-css' href='https://applettek.com/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.13.3' media='all' />
+<link data-minify="1" rel='stylesheet' id='swiper-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/plugins/elementor/assets/lib/swiper/v8/css/swiper.min.css?ver=1695626183' media='all' />
+<link rel='stylesheet' id='elementor-post-7-css' href='https://applettek.com/wp-content/uploads/elementor/css/post-7.css?ver=1685083281' media='all' />
+<link rel='stylesheet' id='elementor-post-5252-css' href='https://applettek.com/wp-content/uploads/elementor/css/post-5252.css?ver=1686928761' media='all' />
+<link data-minify="1" rel='stylesheet' id='conbix-toolkit-elements-css' href='https://applettek.com/wp-content/cache/min/1/wp-content/plugins/conbix-toolkit/inc/assets/css/elements.css?ver=1695626183' media='all' />
+<link rel='stylesheet' id='csf-google-web-fonts-css' href='//fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CUrbanist:700,500,600,800&#038;display=swap' media='all' />
+<link rel='stylesheet' id='eael-general-css' href='https://applettek.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/css/view/general.min.css?ver=5.7.3' media='all' />
+<link rel='stylesheet' id='google-fonts-1-css' href='https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&#038;display=swap&#038;ver=6.9.4' media='all' />
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin><script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<link rel="https://api.w.org/" href="https://applettek.com/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://applettek.com/wp-json/wp/v2/pages/5252" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://applettek.com/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.4" />
+<link rel="canonical" href="https://applettek.com/mobile-applications/" />
+<link rel='shortlink' href='https://applettek.com/?p=5252' />
+
+            <style type="text/css">
+                
+            /* SJB Fonts */
+                                .sjb-page {
+                        font-family: "Roboto", sans-serif;
+                    }
+            
+                /* Job Filters Background Color */
+                .sjb-page .sjb-filters
+                {
+                    background-color: #f2f2f2;
+                }
+                                                    
+                /* Listing & Detail Page Title Color */
+                .sjb-page .list-data .v1 .job-info h4 a , 
+                .sjb-page .list-data .v2 .job-info h4 a              
+                {
+                    color: #3b3a3c;
+                }                
+                                                    
+                /* Job Detail Page Headings */
+                .sjb-page .sjb-detail .list-data .v1 h3,
+                .sjb-page .sjb-detail .list-data .v2 h3,
+                .sjb-page .sjb-detail .list-data ul li::before,
+                .sjb-page .sjb-detail .list-data .v1 .job-detail h3,
+                .sjb-page .sjb-detail .list-data .v2 .job-detail h3,
+                .sjb-page .sjb-archive-page .job-title,
+                .sjb-page .job-features h3
+                {
+                    color: #526d82; 
+                }
+                                                    
+                /* Fontawesome Icon Color */
+                .sjb-page .list-data .v1 .job-type i,
+                .sjb-page .list-data .v1 .job-location i,
+                .sjb-page .list-data .v1 .job-date i,
+                .sjb-page .list-data .v2 .job-type i,
+                .sjb-page .list-data .v2 .job-location i,
+                .sjb-page .list-data .v2 .job-date i,
+                .sjb-page .sjb-detail .list-data .v2 .job-features .sjb-title-value h4 i,
+                .sjb-listing .list-data .v2 .job-features .sjb-title-value h4 i
+                {
+                    color: #3b3a3c;
+                }
+
+                /* Fontawesome Text Color */
+                .sjb-page .list-data .v1 .job-type,
+                .sjb-page .list-data .v1 .job-location,
+                .sjb-page .list-data .v1 .job-date,
+                .sjb-page .list-data .v2 .job-type,
+                .sjb-page .list-data .v2 .job-location,
+                .sjb-page .list-data .v2 .job-date
+                {
+                    color: #526d82;
+                }
+                                                    
+                /* Job Filters-> All Buttons Background Color */
+                .sjb-page .btn-primary,
+                .sjb-page .btn-primary:hover,
+                .sjb-page .btn-primary:active:hover,
+                .sjb-page .btn-primary:active:focus,
+                .sjb-page .sjb-detail .jobpost-form .file div,                
+                .sjb-page .sjb-detail .jobpost-form .file:hover div
+                {
+                    background-color: #526d82 !important;
+                    color: #fff !important;
+                }
+                
+                .sjb-page .sjb-listing a.sjb_view_more_btn,
+                .sjb-page .sjb-listing a.sjb_view_less_btn
+                {
+                    
+                    color: #526d82 !important;
+                }
+
+                /* Pagination Text Color */
+                /* Pagination Background Color */                
+                .sjb-page .pagination li.list-item span.current,
+                .sjb-page .pagination li.list-item a:hover, 
+                .sjb-page .pagination li.list-item span.current:hover
+                {
+                    background: #526d82;
+                    border-color: #526d82;                    
+                    color: #fff;
+                }
+                                                    
+            </style>        
+            <meta name="generator" content="Elementor 3.13.3; features: e_dom_optimization, e_optimized_assets_loading, e_optimized_css_loading, a11y_improvements, additional_custom_breakpoints; settings: css_print_method-external, google_font-enabled, font_display-swap">
+<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><style type="text/css">body{font-family:"Poppins";font-weight:normal;}h1,h2,h3,h4,h5,h6{font-family:"Urbanist";font-weight:700;}:root{--primary-color-1:#526d82;}:root{--primary-color-2:#526d82;}:root{--primary-color-3:#526d82;}.page__banner{background-image:url(http://wpuidemos.com/wp-content/uploads/2023/02/Image1.png);}.subscribe__area-bg{background-image:url(http://wpuidemos.com/wp-content/uploads/2023/02/subscribe.jpg);}</style><link rel="icon" href="https://applettek.com/wp-content/uploads/2023/05/cropped-favicon-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://applettek.com/wp-content/uploads/2023/05/cropped-favicon-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://applettek.com/wp-content/uploads/2023/05/cropped-favicon-180x180.png" />
+<meta name="msapplication-TileImage" content="https://applettek.com/wp-content/uploads/2023/05/cropped-favicon-270x270.png" />
+		<style id="wp-custom-css">
+			.header__area-menubar-center-menu ul li a {
+    
+	padding: 43px 28px; 
+}
+	.about__company-left-experience {
+		
+		
+		display: none;}
+
+.company__two-left-skill {
+    
+    display: none;
+}
+a.btn-two {
+    margin: 25px 0 0 0;
+}		</style>
+		<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript></head>
+
+<body class="wp-singular page-template page-template-page-builder page-template-page-builder-php page page-id-5252 wp-custom-logo wp-theme-conbix conbix elementor-default elementor-kit-7 elementor-page elementor-page-5252">
+				<div id="page" class="site light-mode elements-design">
+					<!-- Top Bar Start -->
+	<div class="top__bar">
+		<div class="container custom__container">
+			<div class="row">
+				<div class="col-xl-5 col-md-6">
+					<div class="top__bar-left">
+																					<a href="mailto:hr@applettek.com">
+									<i class="far fa-envelope"></i>
+									hr@applettek.com								</a>
+																		</div>
+				</div>
+				<div class="col-xl-7 col-md-6">
+					<div class="top__bar-right">
+												<div class="top__bar-right-social">
+															<ul>
+																			<li><a href="#">
+												<i
+													class="fab fa-facebook-f"></i>
+											</a></li>
+																			<li><a href="#">
+												<i
+													class="fab fa-instagram"></i>
+											</a></li>
+																			<li><a href="#">
+												<i
+													class="fab fa-twitter"></i>
+											</a></li>
+																	</ul>
+													</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Top Bar End -->
+<!-- Header Area Start -->
+<div class="header__area header__sticky">
+	<div class="container custom__container">
+		<div class="header__area-menubar">
+			<div class="header__area-menubar-left">
+				<div class="header__area-menubar-left-logo">
+					<a href="https://applettek.com/" class="custom-logo-link" rel="home"><img width="2920" height="1686" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202920%201686'%3E%3C/svg%3E" class="custom-logo" alt="APPLETTEK" decoding="async" fetchpriority="high" data-lazy-srcset="https://applettek.com/wp-content/uploads/2023/05/Applettek-logo.png 2920w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-600x346.png 600w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-300x173.png 300w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-1024x591.png 1024w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-768x443.png 768w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-1536x887.png 1536w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-2048x1183.png 2048w" data-lazy-sizes="(max-width: 2920px) 100vw, 2920px" data-lazy-src="https://applettek.com/wp-content/uploads/2023/05/Applettek-logo.png" /><noscript><img width="2920" height="1686" src="https://applettek.com/wp-content/uploads/2023/05/Applettek-logo.png" class="custom-logo" alt="APPLETTEK" decoding="async" fetchpriority="high" srcset="https://applettek.com/wp-content/uploads/2023/05/Applettek-logo.png 2920w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-600x346.png 600w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-300x173.png 300w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-1024x591.png 1024w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-768x443.png 768w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-1536x887.png 1536w, https://applettek.com/wp-content/uploads/2023/05/Applettek-logo-2048x1183.png 2048w" sizes="(max-width: 2920px) 100vw, 2920px" /></noscript></a>				</div>
+			</div>
+							<div class="header__area-menubar-center">
+					<div class="header__area-menubar-center-menu menu-responsive">
+						<div class="menu-main-menu-container"><ul id="mobilemenu" class="menu"><li id="menu-item-4290" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-4290"><a href="/">Home</a></li>
+<li id="menu-item-2000" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2000"><a href="https://applettek.com/about-us/">About Us</a></li>
+<li id="menu-item-5104" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-5104"><a href="#">Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-5168" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5168"><a href="https://applettek.com/erp-services/">ERP Services</a></li>
+	<li id="menu-item-5260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5260"><a href="https://applettek.com/application-managed-services/">Application Managed Services</a></li>
+	<li id="menu-item-5261" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5261"><a href="https://applettek.com/web-development/">Web Development</a></li>
+	<li id="menu-item-5262" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-5252 current_page_item menu-item-5262"><a href="https://applettek.com/mobile-applications/" aria-current="page">Mobile Applications</a></li>
+	<li id="menu-item-5390" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5390"><a href="https://applettek.com/qa-testing/">QA &amp; Testing</a></li>
+</ul>
+</li>
+<li id="menu-item-5317" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5317"><a href="#">Practices</a>
+<ul class="sub-menu">
+	<li id="menu-item-5318" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5318"><a href="https://applettek.com/workday/">Workday</a></li>
+	<li id="menu-item-5387" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5387"><a href="https://applettek.com/sap/">SAP</a></li>
+	<li id="menu-item-5388" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5388"><a href="https://applettek.com/salesforce/">Salesforce</a></li>
+	<li id="menu-item-5389" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5389"><a href="https://applettek.com/oracle-cloud-applications/">Oracle Cloud Applications</a></li>
+</ul>
+</li>
+<li id="menu-item-5004" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5004"><a href="https://applettek.com/clients/">Clients</a></li>
+<li id="menu-item-4837" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4837"><a href="https://applettek.com/careers/">Careers</a></li>
+</ul></div>					</div>
+				</div>
+						<div class="header__area-menubar-right">
+				<div class="header__area-menubar-right-box">
+																					<div class="header__area-menubar-right-box-btn">
+							<a class="btn-one" href="/contact-us/">Contact Us<i
+									class="far fa-chevron-double-right"></i></a>
+						</div>
+										<!-- sidebar Menu Start -->
+					<div class="header__area-menubar-right-sidebar-popup">
+						<div class="sidebar-close-btn"><i class="fal fa-times"></i></div>
+						<div id="csf_hamburger_widget-1" class="hamburger-popup csf-hamburge-widget">
+        <!-- sidebar Menu Start -->
+                    <div class="header__area-menubar-right-sidebar-popup-logo">
+                <a href="https://applettek.com"> <img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="logo" data-lazy-src="http://wpuidemos.com/wp-content/uploads/2023/02/logo-2.png"><noscript><img src="http://wpuidemos.com/wp-content/uploads/2023/02/logo-2.png" alt="logo"></noscript> </a>
+            </div>
+                            <p>Morbi et tellus imperdiet, aliquam nulla sed, dapibus erat. Aenean dapibus sem non purus venenatis vulputate. Donec accumsan eleifend blandit. Nullam auctor ligula</p>
+        
+        <div class="header__area-menubar-right-box-sidebar-popup-contact">
+                            <h4 class="mb-30">Get In Touch</h4>
+            
+                                                <div class="header__area-menubar-right-box-sidebar-popup-contact-item">
+                        <div class="header__area-menubar-right-box-sidebar-popup-contact-item-icon">
+                            <i class="fal fa-phone-alt"></i>
+                        </div>
+                        <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
+                            <span> Call Now </span>
+                            <h6><a href="tel:+125%20(895)%20658%20568">+125 (895) 658 568</a></h6>
+                        </div>
+                    </div>
+                                    <div class="header__area-menubar-right-box-sidebar-popup-contact-item">
+                        <div class="header__area-menubar-right-box-sidebar-popup-contact-item-icon">
+                            <i class="fal fa-envelope"></i>
+                        </div>
+                        <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
+                            <span> Quick Email </span>
+                            <h6><a href="mailto:info.help@gmail.com">info.help@gmail.com</a></h6>
+                        </div>
+                    </div>
+                                    <div class="header__area-menubar-right-box-sidebar-popup-contact-item">
+                        <div class="header__area-menubar-right-box-sidebar-popup-contact-item-icon">
+                            <i class="fal fa-map-marker-alt"></i>
+                        </div>
+                        <div class="header__area-menubar-right-box-sidebar-popup-contact-item-content">
+                            <span> Office Address </span>
+                            <h6><a href="http://google.com/maps">PV3M+X68 Welshpool United Kingdom</a></h6>
+                        </div>
+                    </div>
+                                    </div>
+
+                    <div class="header__area-menubar-right-box-sidebar-popup-social">
+                <ul>
+                                            <li><a href="http://facebook.com"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="http://instagram.com"><i class="fab fa-instagram"></i></a></li>
+                                            <li><a href="http://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="http://dribbble.com"><i class="fab fa-dribbble"></i></a></li>
+                                    </ul>
+            </div>
+                <!-- sidebar Menu Start -->
+
+</div>					</div>
+					<div class="sidebar-overlay"></div>
+					<!-- sidebar Menu Start -->
+				</div>
+				<div class="responsive-menu"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Header Area End -->
+<main id="primary" class="site-main">
+    
+
+	<!-- Page Banner Area Start -->
+	<div class="page__banner">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					<div class="page__banner-content">
+
+																					<ul>
+									<li><a href="https://applettek.com/">Home</a><span>
+											|										</span></li>
+									<li>
+										Mobile Applications									</li>
+								</ul>
+														<h1>
+								Mobile Applications							</h1>
+											</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Page Banner Area End -->
+    <div class="section-nopading">
+        <div class="full-width">
+            		<div data-elementor-type="wp-page" data-elementor-id="5252" class="elementor elementor-5252">
+									<section class="elementor-section elementor-top-section elementor-element elementor-element-330473b elementor-section-full_width section-padding elementor-section-height-default elementor-section-height-default" data-id="330473b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-988fa16" data-id="988fa16" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<section class="elementor-section elementor-inner-section elementor-element elementor-element-4e6580b elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="4e6580b" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-100 elementor-inner-column elementor-element elementor-element-d0c1ea8" data-id="d0c1ea8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-5092862 elementor-widget elementor-widget-heading" data-id="5092862" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.13.3 - 22-05-2023 */
+.elementor-heading-title{padding:0;margin:0;line-height:1}.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a{color:inherit;font-size:inherit;line-height:inherit}.elementor-widget-heading .elementor-heading-title.elementor-size-small{font-size:15px}.elementor-widget-heading .elementor-heading-title.elementor-size-medium{font-size:19px}.elementor-widget-heading .elementor-heading-title.elementor-size-large{font-size:29px}.elementor-widget-heading .elementor-heading-title.elementor-size-xl{font-size:39px}.elementor-widget-heading .elementor-heading-title.elementor-size-xxl{font-size:59px}</style><h2 class="elementor-heading-title elementor-size-default">We help you build mobile app solutions to meet the business, industry, and end users' specific needs
+</h2>		</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-592a240 elementor-section-content-middle elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="592a240" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-8a413a8" data-id="8a413a8" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-2d72a67 elementor-widget elementor-widget-text-editor" data-id="2d72a67" data-element_type="widget" data-widget_type="text-editor.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.13.3 - 22-05-2023 */
+.elementor-widget-text-editor.elementor-drop-cap-view-stacked .elementor-drop-cap{background-color:#69727d;color:#fff}.elementor-widget-text-editor.elementor-drop-cap-view-framed .elementor-drop-cap{color:#69727d;border:3px solid;background-color:transparent}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap{margin-top:8px}.elementor-widget-text-editor:not(.elementor-drop-cap-view-default) .elementor-drop-cap-letter{width:1em;height:1em}.elementor-widget-text-editor .elementor-drop-cap{float:left;text-align:center;line-height:1;font-size:50px}.elementor-widget-text-editor .elementor-drop-cap-letter{display:inline-block}</style>				<p>Applettek offers Mobile App development services to help you reach out to wider user base, or as part of your business process automation and/or simply to improve user experience. We create user-friendly and engaging mobile app solutions that cater to your specific business needs. We have a dedicated team of mobile app developers who can help you develop apps for your employees, customers, and partner network. We know how to explore the unlimited possibilities that mobile technologies offer these days. We have expertise in both native and cross platform apps.</p>						</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-50 elementor-inner-column elementor-element elementor-element-698285b" data-id="698285b" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-30c9d4e elementor-widget elementor-widget-image" data-id="30c9d4e" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+			<style>/*! elementor - v3.13.3 - 22-05-2023 */
+.elementor-widget-image{text-align:center}.elementor-widget-image a{display:inline-block}.elementor-widget-image a img[src$=".svg"]{width:48px}.elementor-widget-image img{vertical-align:middle;display:inline-block}</style>												<img decoding="async" width="592" height="502" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20592%20502'%3E%3C/svg%3E" class="attachment-large size-large wp-image-5254" alt="" data-lazy-srcset="https://applettek.com/wp-content/uploads/2023/06/mobile-app.png 592w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-300x254.png 300w" data-lazy-sizes="(max-width: 592px) 100vw, 592px" data-lazy-src="https://applettek.com/wp-content/uploads/2023/06/mobile-app.png" /><noscript><img decoding="async" width="592" height="502" src="https://applettek.com/wp-content/uploads/2023/06/mobile-app.png" class="attachment-large size-large wp-image-5254" alt="" srcset="https://applettek.com/wp-content/uploads/2023/06/mobile-app.png 592w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-300x254.png 300w" sizes="(max-width: 592px) 100vw, 592px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-c5200d8 elementor-section-full_width elementor-section-height-min-height elementor-section-height-default elementor-section-items-middle" data-id="c5200d8" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-5761163" data-id="5761163" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-918509d elementor-widget elementor-widget-heading" data-id="918509d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">We have expertise in building mobile apps for every user, platform, and industry.
+</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-d77ebe4 elementor-widget elementor-widget-image" data-id="d77ebe4" data-element_type="widget" data-widget_type="image.default">
+				<div class="elementor-widget-container">
+															<img decoding="async" width="1024" height="143" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201024%20143'%3E%3C/svg%3E" class="attachment-large size-large wp-image-5255" alt="" data-lazy-srcset="https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-1024x143.png 1024w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-300x42.png 300w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-768x108.png 768w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos.png 1536w" data-lazy-sizes="(max-width: 1024px) 100vw, 1024px" data-lazy-src="https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-1024x143.png" /><noscript><img decoding="async" width="1024" height="143" src="https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-1024x143.png" class="attachment-large size-large wp-image-5255" alt="" srcset="https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-1024x143.png 1024w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-300x42.png 300w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos-768x108.png 768w, https://applettek.com/wp-content/uploads/2023/06/mobile-app-logos.png 1536w" sizes="(max-width: 1024px) 100vw, 1024px" /></noscript>															</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-top-section elementor-element elementor-element-d57f5d8 elementor-section-full_width section-padding elementor-section-height-default elementor-section-height-default" data-id="d57f5d8" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-no">
+					<div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-186567f" data-id="186567f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-16e0d3b elementor-widget elementor-widget-section-title" data-id="16e0d3b" data-element_type="widget" data-widget_type="section-title.default">
+				<div class="elementor-widget-container">
+			        
+                    <div class="team__area-title t-center">
+                <span class="subtitle-two">Services</span>
+                <h2></h2>
+            </div>
+        
+        
+        		</div>
+				</div>
+				<div class="elementor-element elementor-element-0ef1bf1 elementor-widget elementor-widget-heading" data-id="0ef1bf1" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Key Highlights of our Mobile App Services
+</h2>		</div>
+				</div>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-c4ebcf2 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c4ebcf2" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-52f765a" data-id="52f765a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c15c76a elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="c15c76a" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+			<link rel="stylesheet" href="https://applettek.com/wp-content/plugins/elementor/assets/css/widget-icon-box.min.css">		<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						Marketing					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						Our digital marketing executives know how to promote the apps across various social media platforms. We also provide backlinks of your app if required to increase the number of installations of the app.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-d46d588" data-id="d46d588" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e65bf9e elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="e65bf9e" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						Maintenance & Optimization					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						Even after the launch, we would add advanced features if required and fix bugs, in case of any glitches.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-7db08a9" data-id="7db08a9" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-c1bf64b elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="c1bf64b" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						Launch					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						Right from taking your app to the store to its success, we stay with you. We take care of every step right from app building to its launch.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-02a2f37 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="02a2f37" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-8048e08" data-id="8048e08" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-d4bcb0a elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="d4bcb0a" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						Integration					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						Applettek will help you integrate the app with the web or any device without any extra effort. A specially designed plugin will be made available with which you can even integrate the third-party services on your app as per your needs.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-afbc41f" data-id="afbc41f" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-e2d9213 elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="e2d9213" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						Customized Mobility Solutions					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						We work with multiple ecosystems to develop custom mobility solutions – native mobile apps, mobile web apps or hybrid apps – based on your business needs.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ac28f6a" data-id="ac28f6a" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-4ab9707 elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="4ab9707" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						Thorough Testing					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						Now say good-bye to the apps that lag and eat your time and memory as we at Applettek roll out mobile apps that are steadfast and consumes less space. Our geeks work round the clock and test every functionality to avoid hiccups to the end users.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+							</div>
+		</section>
+				<section class="elementor-section elementor-inner-section elementor-element elementor-element-c6d8b7e elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="c6d8b7e" data-element_type="section">
+						<div class="elementor-container elementor-column-gap-default">
+					<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-ab13be2" data-id="ab13be2" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-ab6f838 elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="ab6f838" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						UX and UI Design					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						Right from prototype to fluid design, our designers will experiment with every single interface before they present before you for the final sign off. Our apps have stellar visual appeal and catch the user attention right away.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-33812a6" data-id="33812a6" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-7d28cfc elementor-view-default elementor-vertical-align-top elementor-widget elementor-widget-icon-box" data-id="7d28cfc" data-element_type="widget" data-widget_type="icon-box.default">
+				<div class="elementor-widget-container">
+					<div class="elementor-icon-box-wrapper">
+						<div class="elementor-icon-box-content">
+				<h3 class="elementor-icon-box-title">
+					<span  >
+						Planning & Strategy					</span>
+				</h3>
+									<p class="elementor-icon-box-description">
+						Our team would sit with you to discuss ideas, jot down your expectations and chalk out a strategy that will be beneficial to your business for years ahead. Based on the same ideas and your industry, we would build the apps.					</p>
+							</div>
+		</div>
+				</div>
+				</div>
+					</div>
+		</div>
+				<div class="elementor-column elementor-col-33 elementor-inner-column elementor-element elementor-element-f8be5f6" data-id="f8be5f6" data-element_type="column">
+			<div class="elementor-widget-wrap">
+									</div>
+		</div>
+							</div>
+		</section>
+					</div>
+		</div>
+							</div>
+		</section>
+							</div>
+		        </div>
+    </div>
+</main><!-- #main -->
+
+
+
+	<!-- Subscribe Area Start -->
+	<div class="subscribe">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-xl-6 col-lg-6">
+					<div class="subscribe-title">
+						<h2>Stay informed, subscribe to our newsletter</h2>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6">
+											<div class="subscribe-form">
+							
+<div class="wpcf7 no-js" id="wpcf7-f2046-o1" lang="en-US" dir="ltr">
+<div class="screen-reader-response"><p role="status" aria-live="polite" aria-atomic="true"></p> <ul></ul></div>
+<form action="/mobile-applications/#wpcf7-f2046-o1" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+<div style="display: none;">
+<input type="hidden" name="_wpcf7" value="2046" />
+<input type="hidden" name="_wpcf7_version" value="5.7.6" />
+<input type="hidden" name="_wpcf7_locale" value="en_US" />
+<input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f2046-o1" />
+<input type="hidden" name="_wpcf7_container_post" value="0" />
+<input type="hidden" name="_wpcf7_posted_data_hash" value="" />
+</div>
+<span class="wpcf7-form-control-wrap" data-name="your-email"><input size="40" class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email" aria-required="true" aria-invalid="false" placeholder="Email Address" value="" type="email" name="your-email" /></span>
+<button class="btn-seven" type="submit">Subscribe Now</button><div class="wpcf7-response-output" aria-hidden="true"></div>
+</form>
+</div>
+						</div>
+									</div>
+			</div>
+		</div>
+	</div>
+	<!-- Subscribe Area End -->
+<!-- Footer One Area Start -->
+<div class="footer__three">
+	<img class="footer__three-shape" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="" data-lazy-src="https://applettek.com/wp-content/themes/conbix/assets/img/shape/footer-bg-2.png"><noscript><img class="footer__three-shape" src="https://applettek.com/wp-content/themes/conbix/assets/img/shape/footer-bg-2.png" alt=""></noscript>
+			<div id="csf_footer_three_widget-1" class="csf-footer-three-widget">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-lg-5 col-md-7 md-mb-30">
+                    <div class="footer__three-widget">
+                        <div class="footer__three-widget-about">
+                            <a href="https://applettek.com">
+                                <img class="dark-n" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="logo" data-lazy-src="https://applettek.com/wp-content/uploads/2023/05/Applettek-logo.png"><noscript><img class="dark-n" src="https://applettek.com/wp-content/uploads/2023/05/Applettek-logo.png" alt="logo"></noscript>
+                                <img class="light-n" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%200%200'%3E%3C/svg%3E" alt="logo" data-lazy-src="https://applettek.com/wp-content/uploads/2023/05/Applettek-whitelogo.png"><noscript><img class="light-n" src="https://applettek.com/wp-content/uploads/2023/05/Applettek-whitelogo.png" alt="logo"></noscript>
+                            </a>
+                            <p>IT Consulting Services Encompass A Wide Range Of Expertise And Assistance In Leveraging Technology To Address Business Challenges And Improve Organizational Efficiency.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-5 col-sm-7 xl-mb-30">
+                    <div class="footer__three-widget">
+                        <h4>Contact Info</h4>
+                        <div class="footer__three-widget-location">
+                                                                                                                                    <div class="footer__three-widget-location-item">
+                                        <div class="footer__three-widget-location-item-icon">
+                                            <i class="fal fa-phone-alt"></i>
+                                        </div>
+                                        <div class="footer__three-widget-location-item-info">
+                                            <a href="">+1 (847) 722-4913</a>
+                                        </div>
+                                    </div>
+                                                                                    </div>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-lg-3 col-md-4 col-sm-5 sm-mb-30">
+                    <div class="footer__three-widget">
+                        <h4>Company</h4>
+                        <div class="footer__three-widget-solution">
+                            <div class="menu-our-solution-container"><ul id="menu-our-solution" class="menu"><li id="menu-item-5419" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-5419"><a href="https://applettek.com/">Home</a></li>
+<li id="menu-item-5420" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5420"><a href="https://applettek.com/about-us/">About Us</a></li>
+<li id="menu-item-5043" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-privacy-policy menu-item-5043"><a rel="privacy-policy" href="https://applettek.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-5076" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5076"><a href="https://applettek.com/testimonials/">Testimonials</a></li>
+<li id="menu-item-5421" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5421"><a href="https://applettek.com/contact-us/">Contact Us</a></li>
+</ul></div>                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-5">
+                    <div class="footer__three-widget border-one tow">
+                        <h4>Working Hours</h4>
+                        <div class="footer__three-widget-hour">
+                                                                                                <p>Mon - fri : 9:00 AM - 5:00 PM</p>
+                                                                    <p>Sat : 10:00 AM - 6:00 PM</p>
+                                                                    <p>Sunday Close</p>
+                                                                                                                        <div class="footer__three-widget-hour-social">
+                                    <ul>
+                                                                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                                                                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                                                                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                                                            </ul>
+                                </div>
+                                                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</div>		<div class="copyright__three">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					Copyright 2023 - All Rights Reserved By <a href="https://alldgm.com/">ALL DGM Solutions</a>				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Footer One Area End -->
+
+
+
+<!-- Scroll Btn Start -->
+<div class="scroll-up d-black">
+	<svg class="scroll-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+		<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+	</svg>
+</div>
+<!-- Scroll Btn End -->
+</div><!-- #page -->
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/conbix/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://applettek.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1695626183" id="swv-js"></script>
+<script id="contact-form-7-js-extra">
+var wpcf7 = {"api":{"root":"https://applettek.com/wp-json/","namespace":"contact-form-7/v1"},"cached":"1"};
+//# sourceURL=contact-form-7-js-extra
+</script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://applettek.com/wp-content/cache/min/1/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1695626183" id="contact-form-7-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/bootstrap.min.js?ver=1.0.2" id="bootstrap-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/popper.min.js?ver=1.0.2" id="popper-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/jquery.meanmenu.min.js?ver=1.0.2" id="meanmenu-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/swiper-bundle.min.js?ver=1.0.2" id="swiper-bundle-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/jquery.magnific-popup.min.js?ver=1.0.2" id="magnific-popup-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/progressbar.min.js?ver=1.0.2" id="progressbar-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/isotope.pkgd.min.js?ver=1.0.2" id="isotope-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/jquery.counterup.min.js?ver=1.0.2" id="counterups-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/themes/conbix/assets/js/jquery.waypoints.min.js?ver=1.0.2" id="waypoints-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://applettek.com/wp-content/cache/min/1/wp-content/themes/conbix/assets/js/custom.js?ver=1695626183" id="conbix-script-js"></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-src="https://applettek.com/wp-content/cache/min/1/wp-content/plugins/conbix-toolkit/inc/assets/js/elements.js?ver=1695626183" id="conbix-toolkit-elements-js"></script>
+<script id="eael-general-js-extra">
+var localize = {"ajaxurl":"https://applettek.com/wp-admin/admin-ajax.php","nonce":"5b2f9365c1","i18n":{"added":"Added ","compare":"Compare","loading":"Loading..."},"eael_translate_text":{"required_text":"is a required field","invalid_text":"Invalid","billing_text":"Billing","shipping_text":"Shipping","fg_mfp_counter_text":"of"},"page_permalink":"https://applettek.com/mobile-applications/","cart_redirectition":"no","cart_page_url":"","el_breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}};
+//# sourceURL=eael-general-js-extra
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/plugins/essential-addons-for-elementor-lite/assets/front-end/js/view/general.min.js?ver=5.7.3" id="eael-general-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.13.3" id="elementor-webpack-runtime-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.13.3" id="elementor-frontend-modules-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2" id="elementor-waypoints-js"></script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3" id="jquery-ui-core-js"></script>
+<script type="rocketlazyloadscript" id="elementor-frontend-js-before">
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.13.3","is_static":false,"experimentalFeatures":{"e_dom_optimization":true,"e_optimized_assets_loading":true,"e_optimized_css_loading":true,"a11y_improvements":true,"additional_custom_breakpoints":true,"e_swiper_latest":true,"landing-pages":true},"urls":{"assets":"https:\/\/applettek.com\/wp-content\/plugins\/elementor\/assets\/"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":5252,"title":"Mobile%20Applications%20%E2%80%93%20APPLETTEK","excerpt":"","featuredImage":false}};
+//# sourceURL=elementor-frontend-js-before
+</script>
+<script type="rocketlazyloadscript" data-rocket-src="https://applettek.com/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.13.3" id="elementor-frontend-js"></script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://applettek.com/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="rocketlazyloadscript" data-rocket-type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://applettek.com/wp-includes/js/wp-emoji-loader.min.js
+</script>
+<script>window.lazyLoadOptions=[{elements_selector:"img[data-lazy-src],.rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}},{elements_selector:".rocket-lazyload",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,}];window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(var i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://applettek.com/wp-content/plugins/wp-rocket/assets/js/lazyload/17.5/lazyload.min.js"></script><script>class RocketElementorAnimation{constructor(){this.deviceMode=document.createElement("span"),this.deviceMode.id="elementor-device-mode",this.deviceMode.setAttribute("class","elementor-screen-only"),document.body.appendChild(this.deviceMode)}_detectAnimations(){let t=getComputedStyle(this.deviceMode,":after").content.replace(/"/g,"");this.animationSettingKeys=this._listAnimationSettingsKeys(t),document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t=>{const e=t.getBoundingClientRect();if(e.bottom>=0&&e.top<=window.innerHeight)try{this._animateElement(t)}catch(t){}})}_animateElement(t){const e=JSON.parse(t.dataset.settings),i=e._animation_delay||e.animation_delay||0,n=e[this.animationSettingKeys.find(t=>e[t])];if("none"===n)return void t.classList.remove("elementor-invisible");t.classList.remove(n),this.currentAnimation&&t.classList.remove(this.currentAnimation),this.currentAnimation=n;let s=setTimeout(()=>{t.classList.remove("elementor-invisible"),t.classList.add("animated",n),this._removeAnimationSettings(t,e)},i);window.addEventListener("rocket-startLoading",function(){clearTimeout(s)})}_listAnimationSettingsKeys(t="mobile"){const e=[""];switch(t){case"mobile":e.unshift("_mobile");case"tablet":e.unshift("_tablet");case"desktop":e.unshift("_desktop")}const i=[];return["animation","_animation"].forEach(t=>{e.forEach(e=>{i.push(t+e)})}),i}_removeAnimationSettings(t,e){this._listAnimationSettingsKeys().forEach(t=>delete e[t]),t.dataset.settings=JSON.stringify(e)}static run(){const t=new RocketElementorAnimation;requestAnimationFrame(t._detectAnimations.bind(t))}}document.addEventListener("DOMContentLoaded",RocketElementorAnimation.run);</script></body>
+
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me - Debug: cached@1779138922 -->
